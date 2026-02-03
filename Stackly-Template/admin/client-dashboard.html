@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" class="light" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrainComply Solutions | Client Portal</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        heading: ['"Outfit"', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: { 50: '#eef2ff', 500: '#f59e0b', 600: '#d97706', 700: '#b45309' },
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-50 dark:bg-slate-900 text-slate-600 dark:text-slate-300 font-sans">
+
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+        <aside id="sidebar"
+            class="w-64 bg-white dark:bg-slate-900 border-r border-gray-200 dark:border-slate-800 fixed md:static inset-y-0 left-0 z-50 transform -translate-x-full md:translate-x-0 transition-transform duration-300 flex flex-col">
+            <div class="h-16 flex items-center px-4 border-b border-gray-200 dark:border-slate-800">
+                <div class="flex items-center gap-2">
+                    <div
+                        class="w-8 h-8 bg-gradient-to-br from-primary-600 to-primary-500 rounded-lg flex items-center justify-center text-white font-bold text-sm shadow-lg">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <span
+                        class="font-heading font-bold text-lg tracking-tight text-slate-900 dark:text-white">TrainComply<span
+                            class="text-primary-600">Solutions</span></span>
+                </div>
+            </div>
+
+            <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
+                <div class="px-4 mb-2 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+                    My Portal
+                </div>
+
+                <a href="client-dashboard.html"
+                    class="flex items-center gap-3 px-4 py-3 bg-primary-50 dark:bg-white text-primary-600 rounded-xl font-bold shadow-sm transition-all">
+                    <i class="fas fa-home w-5 text-lg"></i> <span class="tracking-wide">Dashboard</span>
+                </a>
+
+                <a href="client-services.html"
+                    class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-slate-800 rounded-xl font-medium transition-colors">
+                    <i class="fas fa-layer-group w-5"></i> My Services
+                </a>
+
+                <a href="client-billing.html"
+                    class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-slate-800 rounded-xl font-medium transition-colors">
+                    <i class="fas fa-file-invoice-dollar w-5"></i> Billing
+                </a>
+
+                <a href="client-support.html"
+                    class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-slate-800 rounded-xl font-medium transition-colors">
+                    <i class="fas fa-headset w-5"></i> Support
+                </a>
+
+                <div
+                    class="px-4 mt-6 mb-2 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+                    Settings
+                </div>
+
+                <a href="client-profile.html"
+                    class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-slate-800 rounded-xl font-medium transition-colors">
+                    <i class="fas fa-user-cog w-5"></i> My Profile
+                </a>
+
+                <a href="login.html"
+                    class="flex items-center gap-3 px-4 py-3 text-red-500 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/10 rounded-xl font-medium transition-colors">
+                    <i class="fas fa-sign-out-alt w-5"></i> Logout
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col h-screen overflow-hidden relative">
+
+            <!-- Top Header -->
+            <header
+                class="h-16 bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700 flex items-center justify-between px-6 z-10">
+                <div class="flex items-center gap-4">
+                    <button id="sidebarToggle"
+                        class="md:hidden text-slate-500 dark:text-slate-200 hover:text-slate-700 dark:hover:text-white">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                    <!-- Mobile Logo -->
+                    <div class="md:hidden flex items-center gap-2">
+                        <div
+                            class="w-8 h-8 bg-gradient-to-br from-primary-600 to-primary-500 rounded-lg flex items-center justify-center text-white font-bold text-sm shadow-sm">
+                            <i class="fas fa-hard-hat"></i>
+                        </div>
+                        <span class="font-heading font-bold text-lg text-slate-900 dark:text-white">TrainComply<span
+                                class="text-primary-600">Solutions</span></span>
+                    </div>
+                </div>
+
+                <div class="hidden md:block flex-1"></div>
+
+                <div class="flex items-center gap-4">
+                    <button id="themeToggle"
+                        class="w-10 h-10 rounded-full hover:bg-gray-100 dark:hover:bg-slate-700 text-slate-500 flex items-center justify-center transition-colors">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+                    <button id="rtlToggle"
+                        class="w-10 h-10 rounded-full hover:bg-gray-100 dark:hover:bg-slate-700 text-slate-500 flex items-center justify-center transition-colors font-bold text-xs">
+                        RTL
+                    </button>
+
+                    <div class="relative">
+                        <img src="https://ui-avatars.com/api/?name=Client+User&background=3b82f6&color=fff"
+                            alt="Profile"
+                            class="w-10 h-10 rounded-full border-2 border-white dark:border-slate-700 shadow-sm">
+                        <span
+                            class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white dark:border-slate-800 rounded-full"></span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <main class="flex-1 overflow-y-auto p-6 md:p-8">
+                <div class="mb-8 flex justify-between items-end">
+                    <div>
+                        <h1 class="text-2xl font-bold text-slate-900 dark:text-white">My Learning Overview</h1>
+                        <p class="text-slate-500 dark:text-slate-400 mt-1">Track your progress and certifications.</p>
+                    </div>
+                    <button
+                        class="hidden md:flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-medium transition-colors shadow-lg shadow-primary-600/30">
+                        <i class="fas fa-certificate text-sm"></i> View Certificates
+                    </button>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <!-- Stat Card 1 -->
+                    <div
+                        class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-gray-100 dark:border-slate-700 shadow-sm">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Courses Completed</p>
+                                <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">3</h3>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-xl bg-green-100 dark:bg-green-900/30 text-green-600 flex items-center justify-center">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stat Card 2 -->
+                    <div
+                        class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-gray-100 dark:border-slate-700 shadow-sm">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-slate-500 dark:text-slate-400 text-sm font-medium">In Progress</p>
+                                <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">1</h3>
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/30 text-blue-600 flex items-center justify-center">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity Table -->
+                <div
+                    class="bg-white dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 shadow-sm overflow-hidden">
+                    <div class="p-6 border-b border-gray-100 dark:border-slate-700 flex justify-between items-center">
+                        <h3 class="font-bold text-slate-900 dark:text-white">Recent Activity</h3>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm text-slate-600 dark:text-slate-400">
+                            <thead class="bg-gray-50 dark:bg-slate-700/50 text-slate-900 dark:text-white font-semibold">
+                                <tr>
+                                    <th class="px-6 py-4">Course</th>
+                                    <th class="px-6 py-4">Date</th>
+                                    <th class="px-6 py-4">Status</th>
+                                    <th class="px-6 py-4 text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100 dark:divide-slate-700">
+                                <tr class="hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors">
+                                    <td class="px-6 py-4">OSHA 10-Hour Construction</td>
+                                    <td class="px-6 py-4">Oct 24, 2025</td>
+                                    <td class="px-6 py-4"><span
+                                            class="px-2 py-1 rounded-full bg-green-100 text-green-700 text-xs font-medium">Completed</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-right">
+                                        <button class="text-primary-600 hover:text-primary-700 font-medium"><i
+                                                class="fas fa-download"></i> Certificate</button>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors">
+                                    <td class="px-6 py-4">Fire Safety Basics</td>
+                                    <td class="px-6 py-4">Today</td>
+                                    <td class="px-6 py-4"><span
+                                            class="px-2 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium">In
+                                            Progress</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-right">
+                                        <button class="text-primary-600 hover:text-primary-700 font-medium"><i
+                                                class="fas fa-play"></i> Continue</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+
+        <!-- Sidebar Overlay (Mobile) -->
+        <div id="sidebarOverlay"
+            class="fixed inset-0 bg-black/50 z-40 hidden md:hidden glass-card backdrop-blur-sm opacity-0 transition-opacity">
+        </div>
+    </div>
+
+    <!-- Admin Logic -->
+    <script>
+        // Dark Mode Check
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Toggle Theme
+        const themeToogles = document.querySelectorAll('#themeToggle');
+        themeToogles.forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                if (document.documentElement.classList.contains('dark')) {
+                    localStorage.theme = 'dark';
+                } else {
+                    localStorage.theme = 'light';
+                }
+            });
+        });
+
+        // RTL Toggle
+        const rtlToggle = document.getElementById('rtlToggle');
+
+        function toggleRTL() {
+            const html = document.documentElement;
+            const isRTL = html.getAttribute('dir') === 'rtl';
+            if (isRTL) {
+                html.setAttribute('dir', 'ltr');
+                rtlToggle.textContent = 'RTL';
+                localStorage.setItem('dir', 'ltr');
+            } else {
+                html.setAttribute('dir', 'rtl');
+                rtlToggle.textContent = 'LTR';
+                localStorage.setItem('dir', 'rtl');
+            }
+        }
+
+        if (rtlToggle) {
+            rtlToggle.addEventListener('click', toggleRTL);
+        }
+
+        // Initialize RTL
+        if (localStorage.getItem('dir') === 'rtl') {
+            document.documentElement.setAttribute('dir', 'rtl');
+            if (rtlToggle) rtlToggle.textContent = 'LTR';
+        }
+
+        // Sidebar Toggle
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+        function toggleSidebar() {
+            const isClosed = sidebar.classList.contains('-translate-x-full');
+            if (isClosed) {
+                sidebar.classList.remove('-translate-x-full');
+                sidebarOverlay.classList.remove('hidden');
+                setTimeout(() => sidebarOverlay.classList.remove('opacity-0'), 10);
+            } else {
+                sidebar.classList.add('-translate-x-full');
+                sidebarOverlay.classList.add('opacity-0');
+                setTimeout(() => sidebarOverlay.classList.add('hidden'), 300);
+            }
+        }
+
+        sidebarToggle.addEventListener('click', toggleSidebar);
+        sidebarOverlay.addEventListener('click', toggleSidebar);
+    </script>
+</body>
+
+</html>

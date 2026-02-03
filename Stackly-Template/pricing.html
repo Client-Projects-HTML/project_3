@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" class="light" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrainComply Solutions | Pricing</title>
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        heading: ['"Outfit"', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: { 50: '#eef2ff', 500: '#f59e0b', 600: '#d97706', 700: '#b45309' },
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass-nav { @apply bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-gray-100 dark:border-slate-800; }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 dark:bg-slate-900 text-slate-600 dark:text-slate-300 font-sans">
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass-nav" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-2">
+                    <div
+                        class="w-10 h-10 bg-gradient-to-br from-primary-600 to-primary-500 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <span class="font-heading font-bold text-2xl text-slate-900 dark:text-white">TrainComply<span
+                            class="text-primary-600">Solutions</span></span>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html"
+                        class="text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">Home</a>
+                    <a href="services.html"
+                        class="text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">Courses</a>
+                    <a href="about.html"
+                        class="text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">About</a>
+                    <div class="relative group">
+                        <button
+                            class="flex items-center gap-1 text-primary-600 dark:text-primary-400 font-semibold transition-colors">
+                            Resources <i
+                                class="fas fa-chevron-down text-xs ltr:ml-1 rtl:mr-1 transition-transform group-hover:rotate-180"></i>
+                        </button>
+                        <div
+                            class="absolute top-full ltr:left-0 rtl:right-0 w-56 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-gray-100 dark:border-slate-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0 p-2">
+                            <a href="blog.html"
+                                class="flex items-center gap-3 px-4 py-2.5 hover:bg-gray-50 dark:hover:bg-slate-700 rounded-lg text-sm text-slate-600 dark:text-slate-300 transition-colors">
+                                <i class="fas fa-newspaper text-slate-400 w-4 text-center"></i>
+                                Safety Blog
+                            </a>
+                            <a href="pricing.html"
+                                class="flex items-center gap-3 px-4 py-2.5 hover:bg-gray-50 dark:hover:bg-slate-700 rounded-lg text-sm text-primary-600 font-medium transition-colors">
+                                <i class="fas fa-tags text-primary-500 w-4 text-center"></i>
+                                Pricing
+                            </a>
+                        </div>
+                    </div>
+                    <a href="contact.html"
+                        class="text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">Contact</a>
+                </div>
+                <!-- Actions -->
+                <div class="hidden md:flex items-center gap-4 rtl:flex-row-reverse">
+                    <a href="admin/login.html"
+                        class="px-5 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-full font-medium transition-colors shadow-lg shadow-primary-600/20 text-sm">Login</a>
+                    <!-- Theme Toggle -->
+                    <button id="themeToggle"
+                        class="w-10 h-10 rounded-full bg-gray-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-primary-50 dark:hover:bg-slate-700 hover:text-primary-600 transition-all flex items-center justify-center">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+
+                    <button id="rtlToggle"
+                        class="w-10 h-10 rounded-full bg-gray-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-primary-50 dark:hover:bg-slate-700 hover:text-primary-600 transition-all flex items-center justify-center font-bold text-xs"
+                        title="Toggle RTL">
+                        RTL
+                    </button>
+                </div>
+                <button class="md:hidden text-2xl" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+    <div id="mobileMenu"
+        class="fixed inset-0 z-40 bg-white dark:bg-slate-950 transform translate-x-full transition-transform duration-300 md:hidden pt-24 px-6 overflow-y-auto">
+        <div class="flex flex-col space-y-4 pb-8">
+            <a href="index.html" class="text-xl font-medium text-slate-900 dark:text-white">Home</a>
+            <a href="services.html" class="text-xl font-medium text-slate-600 dark:text-slate-300">Safety Courses</a>
+            <a href="about.html" class="text-xl font-medium text-slate-600 dark:text-slate-300">About Us</a>
+            <a href="blog.html" class="text-xl font-medium text-slate-600 dark:text-slate-300">Blog</a>
+            <a href="contact.html" class="text-xl font-medium text-slate-600 dark:text-slate-300">Contact</a>
+
+            <hr class="border-gray-100 dark:border-slate-800 my-4">
+
+            <a href="admin/login.html"
+                class="w-full py-3 bg-primary-600 text-white rounded-xl font-bold text-center shadow-lg shadow-primary-600/20">
+                Employee Login
+            </a>
+
+            <div class="flex gap-4">
+                <button
+                    class="flex-1 py-3 bg-gray-100 dark:bg-slate-800 rounded-xl text-slate-600 dark:text-slate-300 font-medium theme-toggle-mobile">
+                    Switch Theme
+                </button>
+                <button
+                    class="flex-1 py-3 bg-gray-100 dark:bg-slate-800 rounded-xl text-slate-600 dark:text-slate-300 font-medium rtl-toggle-mobile">
+                    RTL
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="py-20 max-w-7xl mx-auto px-4 text-center">
+        <h1 class="text-4xl font-bold text-slate-900 dark:text-white mb-6">Simple, Transparent Pricing</h1>
+        <p class="mb-12">Choose the plan that fits your safety training needs.</p>
+
+        <div class="grid md:grid-cols-3 gap-8 text-left">
+            <!-- Individual -->
+            <div
+                class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-700">
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Individual</h3>
+                <p class="text-sm text-slate-500 mb-6">For independent contractors</p>
+                <div class="text-4xl font-bold text-slate-900 dark:text-white mb-6">$19<span
+                        class="text-base font-normal text-slate-500">/course</span></div>
+                <ul class="space-y-3 mb-8 text-sm">
+                    <li><i class="fas fa-check text-green-500 mr-2"></i> Access to 1 Course</li>
+                    <li><i class="fas fa-check text-green-500 mr-2"></i> Certificate Included</li>
+                    <li><i class="fas fa-check text-green-500 mr-2"></i> 1 Year Access</li>
+                </ul>
+                <a href="#"
+                    class="block text-center py-3 bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 text-slate-900 dark:text-white font-medium rounded-xl">Buy
+                    Now</a>
+            </div>
+
+            <!-- Team -->
+            <div
+                class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-xl border border-primary-600 relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-primary-600 text-white text-xs font-bold px-3 py-1 rounded-bl-xl">
+                    POPULAR</div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Business Team</h3>
+                <p class="text-sm text-slate-500 mb-6">For small to medium teams</p>
+                <div class="text-4xl font-bold text-slate-900 dark:text-white mb-6">$299<span
+                        class="text-base font-normal text-slate-500">/mo</span></div>
+                <ul class="space-y-3 mb-8 text-sm">
+                    <li><i class="fas fa-check text-green-500 mr-2"></i> Up to 20 Employees</li>
+                    <li><i class="fas fa-check text-green-500 mr-2"></i> Unlimited Course Access</li>
+                    <li><i class="fas fa-check text-green-500 mr-2"></i> Admin Dashboard</li>
+                    <li><i class="fas fa-check text-green-500 mr-2"></i> Compliance Reports</li>
+                </ul>
+                <a href="#"
+                    class="block text-center py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-xl shadow-lg shadow-primary-600/30">Start
+                    Free Trial</a>
+            </div>
+
+            <!-- Enterprise -->
+            <div
+                class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-700">
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Enterprise</h3>
+                <p class="text-sm text-slate-500 mb-6">For large organizations</p>
+                <div class="text-4xl font-bold text-slate-900 dark:text-white mb-6">Custom</div>
+                <ul class="space-y-3 mb-8 text-sm">
+                    <li><i class="fas fa-check text-green-500 mr-2"></i> Unlimited Users</li>
+                    <li><i class="fas fa-check text-green-500 mr-2"></i> Custom Course Creation</li>
+                    <li><i class="fas fa-check text-green-500 mr-2"></i> dedicated API Access</li>
+                    <li><i class="fas fa-check text-green-500 mr-2"></i> SSO Integration</li>
+                </ul>
+                <a href="contact.html"
+                    class="block text-center py-3 bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 text-slate-900 dark:text-white font-medium rounded-xl">Contact
+                    Sales</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-300 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-2 text-white font-bold text-2xl mb-6">
+                        <div
+                            class="w-8 h-8 bg-gradient-to-br from-primary-600 to-primary-500 rounded-lg flex items-center justify-center text-sm">
+                            <i class="fas fa-hard-hat"></i>
+                        </div>
+                        TrainComply Solutions
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Your partner in industrial safety compliance and workforce protection.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6">Company</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Our Team</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Testimonials</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6">Popular Courses</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-white transition-colors">OSHA 10-Hour</a></li>
+                        <li><a href="coming-soon.html" class="hover:text-white transition-colors">Forklift
+                                Certification</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">First Aid / CPR</a></li>
+                        <li><a href="404.html" class="hover:text-white transition-colors">Electrical Safety</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6">Newsletter</h4>
+                    <p class="text-xs text-slate-400 mb-4">Subscribe for safety tips and regulatory updates.</p>
+                    <form class="flex gap-2">
+                        <input type="email" placeholder="Email address"
+                            class="bg-slate-800 border-none rounded-lg px-4 py-2 text-sm w-full focus:ring-1 focus:ring-primary-500 text-white">
+                        <button
+                            class="bg-primary-600 hover:bg-primary-500 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">OK</button>
+                    </form>
+                </div>
+            </div>
+            <div
+                class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
+                <p>&copy; 2026 TrainComply Solutions.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="hover:text-white transition-colors"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
