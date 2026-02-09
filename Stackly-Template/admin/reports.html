@@ -44,13 +44,14 @@
         <!-- Sidebar -->
         <aside id="sidebar"
             class="w-64 bg-white dark:bg-slate-800 border-r border-gray-200 dark:border-slate-700 fixed md:static inset-y-0 left-0 z-50 transform -translate-x-full md:translate-x-0 transition-transform duration-300 flex flex-col">
-            <div class="h-16 flex items-center px-6 border-b border-gray-200 dark:border-slate-700">
+            <div class="h-16 flex items-center px-4 border-b border-gray-200 dark:border-slate-700">
                 <div class="flex items-center gap-2">
                     <div
-                        class="w-10 h-10 bg-gradient-to-br from-primary-600 to-primary-500 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                        <i class="fas fa-hard-hat"></i>
+                        class="w-9 h-9 bg-gradient-to-br from-primary-600 to-primary-500 rounded-lg flex items-center justify-center text-white shadow-lg">
+                        <i class="fas fa-hard-hat text-base"></i>
                     </div>
-                    <span class="font-heading font-bold text-2xl text-slate-900 dark:text-white">TrainComply<span
+                    <span
+                        class="font-heading font-bold text-lg tracking-tight text-slate-900 dark:text-white">TrainComply<span
                             class="text-primary-600">Solutions</span></span>
                 </div>
             </div>
@@ -141,8 +142,8 @@
                         <p class="text-slate-500 dark:text-slate-400 mt-1">Access generated safety and training reports.
                         </p>
                     </div>
-                    <button
-                        class="hidden md:flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-medium transition-colors shadow-lg shadow-primary-600/30">
+                    <button id="generateReportBtn"
+                        class="hidden md:flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-medium transition-all shadow-lg shadow-primary-600/30 hover:scale-105 active:scale-95">
                         <i class="fas fa-plus text-sm"></i> Generate New Report
                     </button>
                 </div>
@@ -171,12 +172,13 @@
                             </div>
                         </div>
                         <div class="flex items-center gap-3">
-                            <button
-                                class="px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 rounded-lg font-medium transition-colors border border-gray-200 dark:border-slate-600">
+                            <button data-report-id="1" data-report-title="Monthly Compliance Summary - October 2025"
+                                data-report-date="Oct 31, 2025" data-report-size="2.4 MB" data-report-type="PDF"
+                                class="preview-btn px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 rounded-lg font-medium transition-all border border-gray-200 dark:border-slate-600 hover:scale-105">
                                 <i class="fas fa-eye mr-2"></i> Preview
                             </button>
-                            <button
-                                class="px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-colors shadow-lg shadow-primary-600/20">
+                            <button data-report-name="monthly_compliance_oct_2025.pdf"
+                                class="download-btn px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-all shadow-lg shadow-primary-600/20 hover:scale-105 active:scale-95">
                                 <i class="fas fa-download mr-2"></i> Download
                             </button>
                         </div>
@@ -203,12 +205,13 @@
                             </div>
                         </div>
                         <div class="flex items-center gap-3">
-                            <button
-                                class="px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 rounded-lg font-medium transition-colors border border-gray-200 dark:border-slate-600">
+                            <button data-report-id="2" data-report-title="Q3 Safety Incident Report"
+                                data-report-date="Oct 15, 2025" data-report-size="1.8 MB" data-report-type="Word"
+                                class="preview-btn px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 rounded-lg font-medium transition-all border border-gray-200 dark:border-slate-600 hover:scale-105">
                                 <i class="fas fa-eye mr-2"></i> Preview
                             </button>
-                            <button
-                                class="px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-colors shadow-lg shadow-primary-600/20">
+                            <button data-report-name="q3_safety_incident_report.docx"
+                                class="download-btn px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-all shadow-lg shadow-primary-600/20 hover:scale-105 active:scale-95">
                                 <i class="fas fa-download mr-2"></i> Download
                             </button>
                         </div>
@@ -234,12 +237,13 @@
                             </div>
                         </div>
                         <div class="flex items-center gap-3">
-                            <button
-                                class="px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 rounded-lg font-medium transition-colors border border-gray-200 dark:border-slate-600">
+                            <button data-report-id="3" data-report-title="Employee Training Feedback Analysis"
+                                data-report-date="Oct 01, 2025" data-report-size="4.2 MB" data-report-type="Excel"
+                                class="preview-btn px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 rounded-lg font-medium transition-all border border-gray-200 dark:border-slate-600 hover:scale-105">
                                 <i class="fas fa-eye mr-2"></i> Preview
                             </button>
-                            <button
-                                class="px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-colors shadow-lg shadow-primary-600/20">
+                            <button data-report-name="employee_training_feedback.xlsx"
+                                class="download-btn px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-all shadow-lg shadow-primary-600/20 hover:scale-105 active:scale-95">
                                 <i class="fas fa-download mr-2"></i> Download
                             </button>
                         </div>
@@ -252,6 +256,90 @@
         <!-- Sidebar Overlay (Mobile) -->
         <div id="sidebarOverlay"
             class="fixed inset-0 bg-black/50 z-40 hidden md:hidden glass-card backdrop-blur-sm opacity-0 transition-opacity">
+        </div>
+
+        <!-- Preview Modal -->
+        <div id="previewModal"
+            class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+            <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl max-w-2xl w-full transform transition-all scale-95 opacity-0"
+                id="modalContent">
+                <div class="p-6 border-b border-gray-200 dark:border-slate-700 flex justify-between items-center">
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-white" id="modalTitle">Report Preview</h2>
+                    <button id="closeModal"
+                        class="w-10 h-10 rounded-full hover:bg-gray-100 dark:hover:bg-slate-700 text-slate-500 flex items-center justify-center transition-all hover:scale-110">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <div class="p-6 space-y-4">
+                    <div class="flex items-center gap-4">
+                        <div id="modalIcon"
+                            class="w-16 h-16 rounded-xl bg-red-100 dark:bg-red-900/20 text-red-600 flex items-center justify-center text-2xl">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg text-slate-900 dark:text-white" id="modalReportTitle">Report
+                                Title</h3>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm mt-1" id="modalReportMeta">Generated on
+                                Date • Size</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-slate-700/50 rounded-xl p-4 space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-slate-600 dark:text-slate-400">Report ID:</span>
+                            <span class="font-medium text-slate-900 dark:text-white" id="modalReportId">#001</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-600 dark:text-slate-400">File Type:</span>
+                            <span class="font-medium text-slate-900 dark:text-white" id="modalReportType">PDF</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-600 dark:text-slate-400">Status:</span>
+                            <span
+                                class="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-bold">Verified</span>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4">
+                        <div class="flex gap-3">
+                            <i class="fas fa-info-circle text-blue-600 mt-1"></i>
+                            <div>
+                                <p class="font-medium text-blue-900 dark:text-blue-100">Preview Information</p>
+                                <p class="text-sm text-blue-700 dark:text-blue-300 mt-1">This is a preview of the report
+                                    metadata. Click download to get the full report file.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 border-t border-gray-200 dark:border-slate-700 flex justify-end gap-3">
+                    <button id="modalClose"
+                        class="px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-lg font-medium transition-all">
+                        Close
+                    </button>
+                    <button id="modalDownload"
+                        class="px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-all shadow-lg shadow-primary-600/20 hover:scale-105">
+                        <i class="fas fa-download mr-2"></i> Download Report
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div id="toast"
+            class="fixed bottom-6 right-6 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl shadow-2xl p-4 transform translate-y-20 opacity-0 transition-all duration-300 z-50 max-w-sm">
+            <div class="flex items-center gap-3">
+                <div id="toastIcon"
+                    class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/20 text-green-600 flex items-center justify-center">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="flex-1">
+                    <p class="font-medium text-slate-900 dark:text-white" id="toastTitle">Success</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400" id="toastMessage">Action completed
+                        successfully</p>
+                </div>
+                <button id="toastClose" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
         </div>
     </div>
 
@@ -325,29 +413,162 @@
         sidebarToggle.addEventListener('click', toggleSidebar);
         sidebarOverlay.addEventListener('click', toggleSidebar);
 
-        // -- Charts Initialization --
-        new Chart(document.getElementById('revenueChart'), {
-            type: 'line',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Oct'],
-                datasets: [{
-                    label: 'Certifications Issued',
-                    data: [120, 190, 150, 250, 220, 280],
-                    borderColor: '#4f46e5',
-                    backgroundColor: 'rgba(79, 70, 229, 0.1)',
-                    fill: true,
-                    tension: 0.4
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { display: false }
-                },
-                scales: {
-                    y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
-                    x: { grid: { display: false } }
-                }
+        // ===== REPORTS INTERACTIVE FUNCTIONALITY =====
+
+        // Modal Elements
+        const previewModal = document.getElementById('previewModal');
+        const modalContent = document.getElementById('modalContent');
+        const closeModalBtn = document.getElementById('closeModal');
+        const modalCloseBtn = document.getElementById('modalClose');
+        const modalDownloadBtn = document.getElementById('modalDownload');
+
+        // Toast Elements
+        const toast = document.getElementById('toast');
+        const toastIcon = document.getElementById('toastIcon');
+        const toastTitle = document.getElementById('toastTitle');
+        const toastMessage = document.getElementById('toastMessage');
+        const toastClose = document.getElementById('toastClose');
+
+        let currentReportName = '';
+
+        // Show Toast Notification
+        function showToast(title, message, type = 'success') {
+            const icons = {
+                success: { icon: 'fa-check', bg: 'bg-green-100 dark:bg-green-900/20', text: 'text-green-600' },
+                error: { icon: 'fa-times', bg: 'bg-red-100 dark:bg-red-900/20', text: 'text-red-600' },
+                info: { icon: 'fa-info', bg: 'bg-blue-100 dark:bg-blue-900/20', text: 'text-blue-600' }
+            };
+
+            const style = icons[type] || icons.success;
+
+            toastIcon.className = `w-10 h-10 rounded-full ${style.bg} ${style.text} flex items-center justify-center`;
+            toastIcon.innerHTML = `<i class="fas ${style.icon}"></i>`;
+            toastTitle.textContent = title;
+            toastMessage.textContent = message;
+
+            // Show toast
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            // Auto hide after 3 seconds
+            setTimeout(() => {
+                hideToast();
+            }, 3000);
+        }
+
+        // Hide Toast
+        function hideToast() {
+            toast.classList.remove('translate-y-0', 'opacity-100');
+            toast.classList.add('translate-y-20', 'opacity-0');
+        }
+
+        toastClose.addEventListener('click', hideToast);
+
+        // Open Preview Modal
+        function openPreviewModal(reportData) {
+            const { id, title, date, size, type } = reportData;
+
+            // Update modal content
+            document.getElementById('modalReportTitle').textContent = title;
+            document.getElementById('modalReportMeta').textContent = `Generated on ${date} • Size: ${size}`;
+            document.getElementById('modalReportId').textContent = `#${String(id).padStart(3, '0')}`;
+            document.getElementById('modalReportType').textContent = type;
+
+            // Update icon based on type
+            const iconMap = {
+                'PDF': { icon: 'fa-file-pdf', bg: 'bg-red-100 dark:bg-red-900/20', text: 'text-red-600' },
+                'Word': { icon: 'fa-file-word', bg: 'bg-blue-100 dark:bg-blue-900/20', text: 'text-blue-600' },
+                'Excel': { icon: 'fa-file-excel', bg: 'bg-green-100 dark:bg-green-900/20', text: 'text-green-600' }
+            };
+
+            const iconStyle = iconMap[type] || iconMap.PDF;
+            const modalIcon = document.getElementById('modalIcon');
+            modalIcon.className = `w-16 h-16 rounded-xl ${iconStyle.bg} ${iconStyle.text} flex items-center justify-center text-2xl`;
+            modalIcon.innerHTML = `<i class="fas ${iconStyle.icon}"></i>`;
+
+            // Show modal with animation
+            previewModal.classList.remove('hidden');
+            setTimeout(() => {
+                modalContent.classList.remove('scale-95', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        // Close Preview Modal
+        function closePreviewModal() {
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                previewModal.classList.add('hidden');
+            }, 300);
+        }
+
+        closeModalBtn.addEventListener('click', closePreviewModal);
+        modalCloseBtn.addEventListener('click', closePreviewModal);
+
+        // Close modal when clicking outside
+        previewModal.addEventListener('click', (e) => {
+            if (e.target === previewModal) {
+                closePreviewModal();
+            }
+        });
+
+        // Preview Button Click Handlers
+        document.querySelectorAll('.preview-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const reportData = {
+                    id: this.dataset.reportId,
+                    title: this.dataset.reportTitle,
+                    date: this.dataset.reportDate,
+                    size: this.dataset.reportSize,
+                    type: this.dataset.reportType
+                };
+
+                // Store report name for modal download
+                const reportName = this.nextElementSibling.dataset.reportName;
+                currentReportName = reportName;
+
+                openPreviewModal(reportData);
+            });
+        });
+
+        // Download from Modal
+        modalDownloadBtn.addEventListener('click', () => {
+            if (currentReportName) {
+                downloadReport(currentReportName);
+                closePreviewModal();
+            }
+        });
+
+        // Download Report Function
+        function downloadReport(filename) {
+            // Simulate download (in real app, this would trigger actual file download)
+            showToast('Download Started', `Downloading ${filename}...`, 'success');
+
+            // Simulate download progress
+            setTimeout(() => {
+                showToast('Download Complete', `${filename} has been downloaded successfully!`, 'success');
+            }, 1500);
+        }
+
+        // Download Button Click Handlers
+        document.querySelectorAll('.download-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const reportName = this.dataset.reportName;
+                downloadReport(reportName);
+            });
+        });
+
+        // Generate New Report Button
+        document.getElementById('generateReportBtn').addEventListener('click', () => {
+            showToast('Report Generation', 'New report generation wizard would open here!', 'info');
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Close modal with Escape key
+            if (e.key === 'Escape' && !previewModal.classList.contains('hidden')) {
+                closePreviewModal();
             }
         });
     </script>

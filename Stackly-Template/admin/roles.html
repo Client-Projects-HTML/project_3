@@ -44,13 +44,14 @@
         <!-- Sidebar -->
         <aside id="sidebar"
             class="w-64 bg-white dark:bg-slate-800 border-r border-gray-200 dark:border-slate-700 fixed md:static inset-y-0 left-0 z-50 transform -translate-x-full md:translate-x-0 transition-transform duration-300 flex flex-col">
-            <div class="h-16 flex items-center px-6 border-b border-gray-200 dark:border-slate-700">
+            <div class="h-16 flex items-center px-4 border-b border-gray-200 dark:border-slate-700">
                 <div class="flex items-center gap-2">
                     <div
-                        class="w-10 h-10 bg-gradient-to-br from-primary-600 to-primary-500 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                        <i class="fas fa-hard-hat"></i>
+                        class="w-9 h-9 bg-gradient-to-br from-primary-600 to-primary-500 rounded-lg flex items-center justify-center text-white shadow-lg">
+                        <i class="fas fa-hard-hat text-base"></i>
                     </div>
-                    <span class="font-heading font-bold text-2xl text-slate-900 dark:text-white">TrainComply<span
+                    <span
+                        class="font-heading font-bold text-lg tracking-tight text-slate-900 dark:text-white">TrainComply<span
                             class="text-primary-600">Solutions</span></span>
                 </div>
             </div>
@@ -141,8 +142,8 @@
                         <p class="text-slate-500 dark:text-slate-400 mt-1">Manage system access levels and user roles.
                         </p>
                     </div>
-                    <button
-                        class="hidden md:flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-medium transition-colors shadow-lg shadow-primary-600/30">
+                    <button id="createRoleBtn"
+                        class="hidden md:flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-medium transition-all shadow-lg shadow-primary-600/30 hover:scale-105 active:scale-95">
                         <i class="fas fa-shield-alt text-sm"></i> Create New Role
                     </button>
                 </div>
@@ -176,8 +177,9 @@
                                     <td class="px-6 py-4 text-sm text-slate-500">Full system control and configuration
                                         access.</td>
                                     <td class="px-6 py-4 text-right">
-                                        <button class="text-slate-400 hover:text-primary-600 px-2"><i
-                                                class="fas fa-edit"></i></button>
+                                        <button
+                                            class="text-slate-400 hover:text-primary-600 px-2 transition-all hover:scale-110"
+                                            title="Edit role"><i class="fas fa-edit"></i></button>
                                     </td>
                                 </tr>
                                 <tr class="hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors">
@@ -189,10 +191,12 @@
                                     <td class="px-6 py-4 text-sm text-slate-500">Can manage employees, courses, and view
                                         reports.</td>
                                     <td class="px-6 py-4 text-right">
-                                        <button class="text-slate-400 hover:text-primary-600 px-2"><i
-                                                class="fas fa-edit"></i></button>
-                                        <button class="text-slate-400 hover:text-red-600 px-2"><i
-                                                class="fas fa-trash"></i></button>
+                                        <button
+                                            class="text-slate-400 hover:text-primary-600 px-2 transition-all hover:scale-110"
+                                            title="Edit role"><i class="fas fa-edit"></i></button>
+                                        <button
+                                            class="text-slate-400 hover:text-red-600 px-2 transition-all hover:scale-110"
+                                            title="Delete role"><i class="fas fa-trash"></i></button>
                                     </td>
                                 </tr>
                                 <tr class="hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors">
@@ -204,10 +208,12 @@
                                     <td class="px-6 py-4 text-sm text-slate-500">Can create courses and grade
                                         assessments.</td>
                                     <td class="px-6 py-4 text-right">
-                                        <button class="text-slate-400 hover:text-primary-600 px-2"><i
-                                                class="fas fa-edit"></i></button>
-                                        <button class="text-slate-400 hover:text-red-600 px-2"><i
-                                                class="fas fa-trash"></i></button>
+                                        <button
+                                            class="text-slate-400 hover:text-primary-600 px-2 transition-all hover:scale-110"
+                                            title="Edit role"><i class="fas fa-edit"></i></button>
+                                        <button
+                                            class="text-slate-400 hover:text-red-600 px-2 transition-all hover:scale-110"
+                                            title="Delete role"><i class="fas fa-trash"></i></button>
                                     </td>
                                 </tr>
                                 <tr class="hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors">
@@ -219,10 +225,12 @@
                                     <td class="px-6 py-4 text-sm text-slate-500">Can view assigned courses and take
                                         assessments.</td>
                                     <td class="px-6 py-4 text-right">
-                                        <button class="text-slate-400 hover:text-primary-600 px-2"><i
-                                                class="fas fa-edit"></i></button>
-                                        <button class="text-slate-400 hover:text-red-600 px-2"><i
-                                                class="fas fa-trash"></i></button>
+                                        <button
+                                            class="text-slate-400 hover:text-primary-600 px-2 transition-all hover:scale-110"
+                                            title="Edit role"><i class="fas fa-edit"></i></button>
+                                        <button
+                                            class="text-slate-400 hover:text-red-600 px-2 transition-all hover:scale-110"
+                                            title="Delete role"><i class="fas fa-trash"></i></button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -236,6 +244,124 @@
         <!-- Sidebar Overlay (Mobile) -->
         <div id="sidebarOverlay"
             class="fixed inset-0 bg-black/50 z-40 hidden md:hidden glass-card backdrop-blur-sm opacity-0 transition-opacity">
+        </div>
+
+        <!-- Create/Edit Role Modal -->
+        <div id="roleModal"
+            class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+            <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl max-w-2xl w-full transform transition-all scale-95 opacity-0"
+                id="roleModalContent">
+                <div class="p-6 border-b border-gray-200 dark:border-slate-700 flex justify-between items-center">
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-white" id="roleModalTitle">Create New Role
+                    </h2>
+                    <button id="closeRoleModal"
+                        class="w-10 h-10 rounded-full hover:bg-gray-100 dark:hover:bg-slate-700 text-slate-500 flex items-center justify-center transition-all hover:scale-110">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <div class="p-6 space-y-4 max-h-[60vh] overflow-y-auto">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Role
+                            Name</label>
+                        <input id="roleNameInput" type="text" placeholder="e.g., Safety Coordinator"
+                            class="w-full px-4 py-2 bg-gray-50 dark:bg-slate-700 rounded-lg border border-gray-200 dark:border-slate-600 focus:ring-2 focus:ring-primary-500 outline-none text-slate-900 dark:text-white">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Access
+                            Level</label>
+                        <select id="accessLevelSelect"
+                            class="w-full px-4 py-2 bg-gray-50 dark:bg-slate-700 rounded-lg border border-gray-200 dark:border-slate-600 focus:ring-2 focus:ring-primary-500 outline-none text-slate-900 dark:text-white">
+                            <option value="low">Low - Basic access</option>
+                            <option value="medium">Medium - Standard permissions</option>
+                            <option value="high">High - Advanced permissions</option>
+                            <option value="full">Full Access - Complete control</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label
+                            class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Description</label>
+                        <textarea id="roleDescInput" rows="3"
+                            placeholder="Describe the role's responsibilities and permissions..."
+                            class="w-full px-4 py-2 bg-gray-50 dark:bg-slate-700 rounded-lg border border-gray-200 dark:border-slate-600 focus:ring-2 focus:ring-primary-500 outline-none text-slate-900 dark:text-white resize-none"></textarea>
+                    </div>
+                    <div
+                        class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4">
+                        <div class="flex gap-3">
+                            <i class="fas fa-info-circle text-blue-600 mt-1"></i>
+                            <div>
+                                <p class="font-medium text-blue-900 dark:text-blue-100">Permissions Configuration</p>
+                                <p class="text-sm text-blue-700 dark:text-blue-300 mt-1">After creating the role, you'll
+                                    be able to configure detailed permissions for each module.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 border-t border-gray-200 dark:border-slate-700 flex justify-end gap-3">
+                    <button id="cancelRoleBtn"
+                        class="px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-lg font-medium transition-all">
+                        Cancel
+                    </button>
+                    <button id="saveRoleBtn"
+                        class="px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-all shadow-lg shadow-primary-600/20 hover:scale-105">
+                        <i class="fas fa-save mr-2"></i> <span id="saveRoleBtnText">Create Role</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delete Confirmation Modal -->
+        <div id="deleteModal"
+            class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+            <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl max-w-md w-full transform transition-all scale-95 opacity-0"
+                id="deleteModalContent">
+                <div class="p-6 text-center">
+                    <div
+                        class="w-16 h-16 bg-red-100 dark:bg-red-900/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-exclamation-triangle text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Delete Role?</h3>
+                    <p class="text-slate-600 dark:text-slate-400 mb-1" id="deleteRoleName">Role: Manager</p>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm mb-4" id="deleteUserCount">This role is
+                        assigned to 8 user(s)</p>
+                    <div
+                        class="bg-red-50 dark:bg-red-900/10 border border-red-200 dark:border-red-800 rounded-lg p-3 mb-6">
+                        <p class="text-sm text-red-800 dark:text-red-200">
+                            <i class="fas fa-exclamation-circle mr-1"></i>
+                            This action cannot be undone. Users will be unassigned from this role.
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 flex gap-3">
+                    <button id="cancelDeleteBtn"
+                        class="flex-1 px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-lg font-medium transition-all">
+                        Cancel
+                    </button>
+                    <button id="confirmDeleteBtn"
+                        class="flex-1 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-all shadow-lg shadow-red-600/20 hover:scale-105">
+                        <i class="fas fa-trash mr-2"></i> Delete Role
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div id="toast"
+            class="fixed bottom-6 right-6 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl shadow-2xl p-4 transform translate-y-20 opacity-0 transition-all duration-300 z-50 max-w-sm">
+            <div class="flex items-center gap-3">
+                <div id="toastIcon"
+                    class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/20 text-green-600 flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <p class="font-medium text-slate-900 dark:text-white" id="toastTitle">Success</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 truncate" id="toastMessage">Action completed
+                        successfully</p>
+                </div>
+                <button id="toastClose"
+                    class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 flex-shrink-0">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
         </div>
     </div>
 
@@ -309,29 +435,176 @@
         sidebarToggle.addEventListener('click', toggleSidebar);
         sidebarOverlay.addEventListener('click', toggleSidebar);
 
-        // -- Charts Initialization --
-        new Chart(document.getElementById('revenueChart'), {
-            type: 'line',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Oct'],
-                datasets: [{
-                    label: 'Certifications Issued',
-                    data: [120, 190, 150, 250, 220, 280],
-                    borderColor: '#4f46e5',
-                    backgroundColor: 'rgba(79, 70, 229, 0.1)',
-                    fill: true,
-                    tension: 0.4
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { display: false }
-                },
-                scales: {
-                    y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
-                    x: { grid: { display: false } }
-                }
+        // ===== ROLES & PERMISSIONS FUNCTIONALITY =====
+
+        // Modal and Toast Elements
+        const roleModal = document.getElementById('roleModal');
+        const roleModalContent = document.getElementById('roleModalContent');
+        const roleModalTitle = document.getElementById('roleModalTitle');
+        const saveRoleBtnText = document.getElementById('saveRoleBtnText');
+        const deleteModal = document.getElementById('deleteModal');
+        const deleteModalContent = document.getElementById('deleteModalContent');
+        const toast = document.getElementById('toast');
+        const toastIcon = document.getElementById('toastIcon');
+        const toastTitle = document.getElementById('toastTitle');
+        const toastMessage = document.getElementById('toastMessage');
+
+        let currentAction = 'create'; // 'create' or 'edit'
+        let currentRoleName = '';
+
+        // Show Toast Notification
+        function showToast(title, message, type = 'success') {
+            const icons = {
+                success: { icon: 'fa-check', bg: 'bg-green-100 dark:bg-green-900/20', text: 'text-green-600' },
+                error: { icon: 'fa-times', bg: 'bg-red-100 dark:bg-red-900/20', text: 'text-red-600' },
+                info: { icon: 'fa-shield-alt', bg: 'bg-blue-100 dark:bg-blue-900/20', text: 'text-blue-600' }
+            };
+
+            const style = icons[type] || icons.success;
+
+            toastIcon.className = `w-10 h-10 rounded-full ${style.bg} ${style.text} flex items-center justify-center flex-shrink-0`;
+            toastIcon.innerHTML = `<i class="fas ${style.icon}"></i>`;
+            toastTitle.textContent = title;
+            toastMessage.textContent = message;
+
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                hideToast();
+            }, 3000);
+        }
+
+        function hideToast() {
+            toast.classList.remove('translate-y-0', 'opacity-100');
+            toast.classList.add('translate-y-20', 'opacity-0');
+        }
+
+        document.getElementById('toastClose').addEventListener('click', hideToast);
+
+        // Open Role Modal (Create or Edit)
+        function openRoleModal(mode = 'create', roleName = '') {
+            currentAction = mode;
+            currentRoleName = roleName;
+
+            if (mode === 'create') {
+                roleModalTitle.textContent = 'Create New Role';
+                saveRoleBtnText.textContent = 'Create Role';
+                document.getElementById('roleNameInput').value = '';
+                document.getElementById('accessLevelSelect').value = 'low';
+                document.getElementById('roleDescInput').value = '';
+            } else {
+                roleModalTitle.textContent = `Edit Role: ${roleName}`;
+                saveRoleBtnText.textContent = 'Save Changes';
+                document.getElementById('roleNameInput').value = roleName;
+            }
+
+            roleModal.classList.remove('hidden');
+            setTimeout(() => {
+                roleModalContent.classList.remove('scale-95', 'opacity-0');
+                roleModalContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeRoleModal() {
+            roleModalContent.classList.remove('scale-100', 'opacity-100');
+            roleModalContent.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                roleModal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Open Delete Modal
+        function openDeleteModal(roleName, userCount) {
+            currentRoleName = roleName;
+            document.getElementById('deleteRoleName').textContent = `Role: ${roleName}`;
+            document.getElementById('deleteUserCount').textContent = `This role is assigned to ${userCount} user(s)`;
+
+            deleteModal.classList.remove('hidden');
+            setTimeout(() => {
+                deleteModalContent.classList.remove('scale-95', 'opacity-0');
+                deleteModalContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeDeleteModal() {
+            deleteModalContent.classList.remove('scale-100', 'opacity-100');
+            deleteModalContent.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                deleteModal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Create New Role Button
+        document.getElementById('createRoleBtn').addEventListener('click', () => {
+            openRoleModal('create');
+        });
+
+        // Close Modal Buttons
+        document.getElementById('closeRoleModal').addEventListener('click', closeRoleModal);
+        document.getElementById('cancelRoleBtn').addEventListener('click', closeRoleModal);
+        document.getElementById('cancelDeleteBtn').addEventListener('click', closeDeleteModal);
+
+        // Click outside to close
+        roleModal.addEventListener('click', (e) => {
+            if (e.target === roleModal) closeRoleModal();
+        });
+        deleteModal.addEventListener('click', (e) => {
+            if (e.target === deleteModal) closeDeleteModal();
+        });
+
+        // Save Role Button
+        document.getElementById('saveRoleBtn').addEventListener('click', () => {
+            const roleName = document.getElementById('roleNameInput').value;
+            const accessLevel = document.getElementById('accessLevelSelect').value;
+            const description = document.getElementById('roleDescInput').value;
+
+            if (!roleName.trim()) {
+                showToast('Validation Error', 'Please enter a role name', 'error');
+                return;
+            }
+
+            closeRoleModal();
+
+            if (currentAction === 'create') {
+                showToast('Role Created', `"${roleName}" role has been created successfully!`, 'success');
+            } else {
+                showToast('Role Updated', `"${roleName}" role has been updated successfully!`, 'success');
+            }
+        });
+
+        // Confirm Delete Button
+        document.getElementById('confirmDeleteBtn').addEventListener('click', () => {
+            closeDeleteModal();
+            showToast('Role Deleted', `"${currentRoleName}" role has been deleted successfully`, 'success');
+        });
+
+        // Edit Role Buttons
+        document.querySelectorAll('.fa-edit').forEach(btn => {
+            btn.parentElement.addEventListener('click', function (e) {
+                e.preventDefault();
+                const row = this.closest('tr');
+                const roleName = row.querySelector('td:first-child').textContent;
+                openRoleModal('edit', roleName);
+            });
+        });
+
+        // Delete Role Buttons
+        document.querySelectorAll('.fa-trash').forEach(btn => {
+            btn.parentElement.addEventListener('click', function (e) {
+                e.preventDefault();
+                const row = this.closest('tr');
+                const roleName = row.querySelector('td:first-child').textContent;
+                const userCount = row.querySelectorAll('td')[2].textContent;
+                openDeleteModal(roleName, userCount);
+            });
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (!roleModal.classList.contains('hidden')) closeRoleModal();
+                if (!deleteModal.classList.contains('hidden')) closeDeleteModal();
             }
         });
     </script>

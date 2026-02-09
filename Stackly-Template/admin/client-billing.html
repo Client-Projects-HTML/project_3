@@ -41,13 +41,14 @@
         <!-- Sidebar -->
         <aside id="sidebar"
             class="w-64 bg-white dark:bg-slate-900 border-r border-gray-200 dark:border-slate-800 fixed md:static inset-y-0 left-0 z-50 transform -translate-x-full md:translate-x-0 transition-transform duration-300 flex flex-col">
-            <div class="h-16 flex items-center px-6 border-b border-gray-200 dark:border-slate-800">
+            <div class="h-16 flex items-center px-4 border-b border-gray-200 dark:border-slate-800">
                 <div class="flex items-center gap-2">
                     <div
-                        class="w-10 h-10 bg-gradient-to-br from-primary-600 to-primary-500 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                        <i class="fas fa-hard-hat"></i>
+                        class="w-9 h-9 bg-gradient-to-br from-primary-600 to-primary-500 rounded-lg flex items-center justify-center text-white shadow-lg">
+                        <i class="fas fa-hard-hat text-base"></i>
                     </div>
-                    <span class="font-heading font-bold text-2xl text-slate-900 dark:text-white">TrainComply<span
+                    <span
+                        class="font-heading font-bold text-lg tracking-tight text-slate-900 dark:text-white">TrainComply<span
                             class="text-primary-600">Solutions</span></span>
                 </div>
             </div>
@@ -156,13 +157,13 @@
                             <p class="text-slate-500 dark:text-slate-400 font-medium">$299.00 / month</p>
                         </div>
                         <div class="flex gap-3">
-                            <button
-                                class="px-6 py-2.5 bg-gray-100 hover:bg-gray-200 dark:bg-white/10 dark:hover:bg-white/20 text-slate-700 dark:text-white border border-gray-200 dark:border-white/10 rounded-xl font-medium transition-all">
-                                Change Plan
+                            <button id="changePlanBtn"
+                                class="px-6 py-2.5 bg-gray-100 hover:bg-gray-200 dark:bg-white/10 dark:hover:bg-white/20 text-slate-700 dark:text-white border border-gray-200 dark:border-white/10 rounded-xl font-medium transition-all hover:scale-105">
+                                <i class="fas fa-exchange-alt mr-2"></i> Change Plan
                             </button>
-                            <button
-                                class="px-6 py-2.5 bg-primary-600 hover:bg-primary-700 text-white rounded-xl font-bold shadow-lg shadow-primary-600/30 transition-all">
-                                Pay Now
+                            <button id="payNowBtn"
+                                class="px-6 py-2.5 bg-primary-600 hover:bg-primary-700 text-white rounded-xl font-bold shadow-lg shadow-primary-600/30 transition-all hover:scale-105">
+                                <i class="fas fa-credit-card mr-2"></i> Pay Now
                             </button>
                         </div>
                     </div>
@@ -173,7 +174,8 @@
                     class="bg-white dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 shadow-sm overflow-hidden">
                     <div class="p-6 border-b border-gray-100 dark:border-slate-700 flex justify-between items-center">
                         <h3 class="font-bold text-slate-900 dark:text-white">Invoice History</h3>
-                        <button class="text-primary-600 text-sm font-medium hover:underline"><i
+                        <button id="downloadAllBtn"
+                            class="text-primary-600 text-sm font-medium hover:underline transition-all hover:scale-105"><i
                                 class="fas fa-download mr-1"></i> Download All</button>
                     </div>
                     <div class="overflow-x-auto">
@@ -196,7 +198,9 @@
                                             class="px-2 py-1 rounded-full bg-green-100 text-green-700 text-xs font-medium">Paid</span>
                                     </td>
                                     <td class="px-6 py-4 text-right">
-                                        <button class="text-slate-400 hover:text-slate-600"><i
+                                        <button
+                                            class="download-invoice text-slate-400 hover:text-primary-600 transition-all hover:scale-110"
+                                            title="Download Invoice" data-invoice="#INV-2025-001"><i
                                                 class="fas fa-download"></i></button>
                                     </td>
                                 </tr>
@@ -208,7 +212,9 @@
                                             class="px-2 py-1 rounded-full bg-green-100 text-green-700 text-xs font-medium">Paid</span>
                                     </td>
                                     <td class="px-6 py-4 text-right">
-                                        <button class="text-slate-400 hover:text-slate-600"><i
+                                        <button
+                                            class="download-invoice text-slate-400 hover:text-primary-600 transition-all hover:scale-110"
+                                            title="Download Invoice" data-invoice="#INV-2025-002"><i
                                                 class="fas fa-download"></i></button>
                                     </td>
                                 </tr>
@@ -223,9 +229,219 @@
         <div id="sidebarOverlay"
             class="fixed inset-0 bg-black/50 z-40 hidden md:hidden glass-card backdrop-blur-sm opacity-0 transition-opacity">
         </div>
+
+        <!-- Change Plan Modal -->
+        <div id="planModal"
+            class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+            <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl max-w-4xl w-full transform transition-all scale-95 opacity-0"
+                id="planModalContent">
+                <div class="p-6 border-b border-gray-200 dark:border-slate-700 flex justify-between items-center">
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-white">Choose Your Plan</h2>
+                    <button id="closePlanModal"
+                        class="w-10 h-10 rounded-full hover:bg-gray-100 dark:hover:bg-slate-700 text-slate-500 flex items-center justify-center transition-all hover:scale-110">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <div class="p-6 max-h-[70vh] overflow-y-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Basic Plan -->
+                        <div
+                            class="border-2 border-gray-200 dark:border-slate-700 rounded-2xl p-6 hover:border-primary-500 transition-all hover:shadow-lg">
+                            <div class="text-center mb-6">
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Basic</h3>
+                                <div class="text-3xl font-bold text-slate-900 dark:text-white mb-1">$99<span
+                                        class="text-lg text-slate-500">/mo</span></div>
+                                <p class="text-sm text-slate-500">Perfect for small teams</p>
+                            </div>
+                            <ul class="space-y-3 mb-6">
+                                <li class="flex items-center gap-2 text-sm">
+                                    <i class="fas fa-check text-green-600"></i>
+                                    <span>Up to 50 employees</span>
+                                </li>
+                                <li class="flex items-center gap-2 text-sm">
+                                    <i class="fas fa-check text-green-600"></i>
+                                    <span>10 training courses</span>
+                                </li>
+                                <li class="flex items-center gap-2 text-sm">
+                                    <i class="fas fa-check text-green-600"></i>
+                                    <span>Email support</span>
+                                </li>
+                            </ul>
+                            <button
+                                class="select-plan w-full px-4 py-2 bg-gray-100 hover:bg-gray-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-900 dark:text-white rounded-lg font-medium transition-all"
+                                data-plan="Basic" data-price="$99">
+                                Select Plan
+                            </button>
+                        </div>
+
+                        <!-- Standard Plan (Current) -->
+                        <div class="border-2 border-primary-600 rounded-2xl p-6 relative shadow-lg">
+                            <div
+                                class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-primary-600 text-white text-xs font-bold rounded-full">
+                                CURRENT PLAN
+                            </div>
+                            <div class="text-center mb-6">
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Standard Enterprise
+                                </h3>
+                                <div class="text-3xl font-bold text-slate-900 dark:text-white mb-1">$299<span
+                                        class="text-lg text-slate-500">/mo</span></div>
+                                <p class="text-sm text-slate-500">For growing businesses</p>
+                            </div>
+                            <ul class="space-y-3 mb-6">
+                                <li class="flex items-center gap-2 text-sm">
+                                    <i class="fas fa-check text-green-600"></i>
+                                    <span>Up to 200 employees</span>
+                                </li>
+                                <li class="flex items-center gap-2 text-sm">
+                                    <i class="fas fa-check text-green-600"></i>
+                                    <span>Unlimited courses</span>
+                                </li>
+                                <li class="flex items-center gap-2 text-sm">
+                                    <i class="fas fa-check text-green-600"></i>
+                                    <span>Priority support</span>
+                                </li>
+                                <li class="flex items-center gap-2 text-sm">
+                                    <i class="fas fa-check text-green-600"></i>
+                                    <span>Custom branding</span>
+                                </li>
+                            </ul>
+                            <button
+                                class="w-full px-4 py-2 bg-primary-600 text-white rounded-lg font-medium cursor-not-allowed opacity-50">
+                                Current Plan
+                            </button>
+                        </div>
+
+                        <!-- Premium Plan -->
+                        <div
+                            class="border-2 border-gray-200 dark:border-slate-700 rounded-2xl p-6 hover:border-primary-500 transition-all hover:shadow-lg">
+                            <div class="text-center mb-6">
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Premium</h3>
+                                <div class="text-3xl font-bold text-slate-900 dark:text-white mb-1">$599<span
+                                        class="text-lg text-slate-500">/mo</span></div>
+                                <p class="text-sm text-slate-500">Enterprise solution</p>
+                            </div>
+                            <ul class="space-y-3 mb-6">
+                                <li class="flex items-center gap-2 text-sm">
+                                    <i class="fas fa-check text-green-600"></i>
+                                    <span>Unlimited employees</span>
+                                </li>
+                                <li class="flex items-center gap-2 text-sm">
+                                    <i class="fas fa-check text-green-600"></i>
+                                    <span>Unlimited courses</span>
+                                </li>
+                                <li class="flex items-center gap-2 text-sm">
+                                    <i class="fas fa-check text-green-600"></i>
+                                    <span>24/7 dedicated support</span>
+                                </li>
+                                <li class="flex items-center gap-2 text-sm">
+                                    <i class="fas fa-check text-green-600"></i>
+                                    <span>API access</span>
+                                </li>
+                                <li class="flex items-center gap-2 text-sm">
+                                    <i class="fas fa-check text-green-600"></i>
+                                    <span>White-label solution</span>
+                                </li>
+                            </ul>
+                            <button
+                                class="select-plan w-full px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-all hover:scale-105"
+                                data-plan="Premium" data-price="$599">
+                                Upgrade Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Modal -->
+        <div id="paymentModal"
+            class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+            <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl max-w-md w-full transform transition-all scale-95 opacity-0"
+                id="paymentModalContent">
+                <div class="p-6 border-b border-gray-200 dark:border-slate-700 flex justify-between items-center">
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-white">Payment Details</h2>
+                    <button id="closePaymentModal"
+                        class="w-10 h-10 rounded-full hover:bg-gray-100 dark:hover:bg-slate-700 text-slate-500 flex items-center justify-center transition-all hover:scale-110">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <div class="p-6 space-y-4">
+                    <div
+                        class="bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-800 rounded-xl p-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-slate-600 dark:text-slate-400">Plan:</span>
+                            <span class="font-bold text-slate-900 dark:text-white">Standard Enterprise</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-600 dark:text-slate-400">Amount Due:</span>
+                            <span class="text-2xl font-bold text-primary-600">$299.00</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Card
+                            Number</label>
+                        <input type="text" placeholder="1234 5678 9012 3456"
+                            class="w-full px-4 py-2 bg-gray-50 dark:bg-slate-700 rounded-lg border border-gray-200 dark:border-slate-600 focus:ring-2 focus:ring-primary-500 outline-none text-slate-900 dark:text-white">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Expiry
+                                Date</label>
+                            <input type="text" placeholder="MM/YY"
+                                class="w-full px-4 py-2 bg-gray-50 dark:bg-slate-700 rounded-lg border border-gray-200 dark:border-slate-600 focus:ring-2 focus:ring-primary-500 outline-none text-slate-900 dark:text-white">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">CVV</label>
+                            <input type="text" placeholder="123"
+                                class="w-full px-4 py-2 bg-gray-50 dark:bg-slate-700 rounded-lg border border-gray-200 dark:border-slate-600 focus:ring-2 focus:ring-primary-500 outline-none text-slate-900 dark:text-white">
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-3">
+                        <p class="text-sm text-blue-800 dark:text-blue-200">
+                            <i class="fas fa-lock mr-1"></i>
+                            Your payment information is secure and encrypted.
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 flex gap-3">
+                    <button id="cancelPaymentBtn"
+                        class="flex-1 px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-lg font-medium transition-all">
+                        Cancel
+                    </button>
+                    <button id="confirmPaymentBtn"
+                        class="flex-1 px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-all shadow-lg shadow-primary-600/20 hover:scale-105">
+                        <i class="fas fa-lock mr-2"></i> Pay $299.00
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div id="toast"
+            class="fixed bottom-6 right-6 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl shadow-2xl p-4 transform translate-y-20 opacity-0 transition-all duration-300 z-50 max-w-sm">
+            <div class="flex items-center gap-3">
+                <div id="toastIcon"
+                    class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/20 text-green-600 flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <p class="font-medium text-slate-900 dark:text-white" id="toastTitle">Success</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 truncate" id="toastMessage">Action completed
+                        successfully</p>
+                </div>
+                <button id="toastClose"
+                    class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 flex-shrink-0">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
     </div>
 
-    <!-- Script same as dashboard -->
+    <!-- Billing Logic -->
     <script>
         // Dark Mode Check
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -288,6 +504,138 @@
 
         sidebarToggle.addEventListener('click', toggleSidebar);
         sidebarOverlay.addEventListener('click', toggleSidebar);
+
+        // ===== BILLING FUNCTIONALITY =====
+
+        // Modal Elements
+        const planModal = document.getElementById('planModal');
+        const planModalContent = document.getElementById('planModalContent');
+        const paymentModal = document.getElementById('paymentModal');
+        const paymentModalContent = document.getElementById('paymentModalContent');
+        const toast = document.getElementById('toast');
+        const toastIcon = document.getElementById('toastIcon');
+        const toastTitle = document.getElementById('toastTitle');
+        const toastMessage = document.getElementById('toastMessage');
+
+        // Show Toast Notification
+        function showToast(title, message, type = 'success') {
+            const icons = {
+                success: { icon: 'fa-check', bg: 'bg-green-100 dark:bg-green-900/20', text: 'text-green-600' },
+                error: { icon: 'fa-times', bg: 'bg-red-100 dark:bg-red-900/20', text: 'text-red-600' },
+                info: { icon: 'fa-info-circle', bg: 'bg-blue-100 dark:bg-blue-900/20', text: 'text-blue-600' }
+            };
+
+            const style = icons[type] || icons.success;
+
+            toastIcon.className = `w-10 h-10 rounded-full ${style.bg} ${style.text} flex items-center justify-center flex-shrink-0`;
+            toastIcon.innerHTML = `<i class="fas ${style.icon}"></i>`;
+            toastTitle.textContent = title;
+            toastMessage.textContent = message;
+
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                hideToast();
+            }, 3000);
+        }
+
+        function hideToast() {
+            toast.classList.remove('translate-y-0', 'opacity-100');
+            toast.classList.add('translate-y-20', 'opacity-0');
+        }
+
+        document.getElementById('toastClose').addEventListener('click', hideToast);
+
+        // Open Plan Modal
+        function openPlanModal() {
+            planModal.classList.remove('hidden');
+            setTimeout(() => {
+                planModalContent.classList.remove('scale-95', 'opacity-0');
+                planModalContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closePlanModal() {
+            planModalContent.classList.remove('scale-100', 'opacity-100');
+            planModalContent.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                planModal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Open Payment Modal
+        function openPaymentModal() {
+            paymentModal.classList.remove('hidden');
+            setTimeout(() => {
+                paymentModalContent.classList.remove('scale-95', 'opacity-0');
+                paymentModalContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closePaymentModal() {
+            paymentModalContent.classList.remove('scale-100', 'opacity-100');
+            paymentModalContent.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                paymentModal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Change Plan Button
+        document.getElementById('changePlanBtn').addEventListener('click', openPlanModal);
+
+        // Pay Now Button
+        document.getElementById('payNowBtn').addEventListener('click', openPaymentModal);
+
+        // Close Modal Buttons
+        document.getElementById('closePlanModal').addEventListener('click', closePlanModal);
+        document.getElementById('closePaymentModal').addEventListener('click', closePaymentModal);
+        document.getElementById('cancelPaymentBtn').addEventListener('click', closePaymentModal);
+
+        // Click outside to close
+        planModal.addEventListener('click', (e) => {
+            if (e.target === planModal) closePlanModal();
+        });
+        paymentModal.addEventListener('click', (e) => {
+            if (e.target === paymentModal) closePaymentModal();
+        });
+
+        // Select Plan Buttons
+        document.querySelectorAll('.select-plan').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const plan = this.getAttribute('data-plan');
+                const price = this.getAttribute('data-price');
+                closePlanModal();
+                showToast('Plan Selected', `You've selected the ${plan} plan (${price}/mo). Changes will take effect next billing cycle.`, 'success');
+            });
+        });
+
+        // Confirm Payment Button
+        document.getElementById('confirmPaymentBtn').addEventListener('click', () => {
+            closePaymentModal();
+            showToast('Payment Successful', 'Your payment of $299.00 has been processed successfully!', 'success');
+        });
+
+        // Download Invoice Buttons
+        document.querySelectorAll('.download-invoice').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const invoice = this.getAttribute('data-invoice');
+                showToast('Download Started', `Invoice ${invoice} is being downloaded...`, 'info');
+            });
+        });
+
+        // Download All Button
+        document.getElementById('downloadAllBtn').addEventListener('click', () => {
+            showToast('Download Started', 'All invoices are being downloaded as a ZIP file...', 'info');
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (!planModal.classList.contains('hidden')) closePlanModal();
+                if (!paymentModal.classList.contains('hidden')) closePaymentModal();
+            }
+        });
     </script>
 </body>
 

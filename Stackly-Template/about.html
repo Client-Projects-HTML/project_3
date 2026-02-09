@@ -10,6 +10,7 @@
         rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -30,6 +31,8 @@
         @layer utilities {
             .glass-nav { @apply bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-gray-100 dark:border-slate-800; }
         }
+        .swiper-pagination-bullet { @apply bg-slate-300 dark:bg-slate-500 opacity-60; }
+        .swiper-pagination-bullet-active { @apply bg-primary-500 opacity-100 !important; }
     </style>
 </head>
 
@@ -129,21 +132,13 @@
         </div>
     </div>
 
-    <!-- Header -->
-    <section class="pt-40 pb-20 bg-gray-50 dark:bg-slate-900">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-heading font-bold text-slate-900 dark:text-white mb-6">About Our
-                Mission</h1>
-            <p class="text-lg text-slate-600 max-w-2xl mx-auto">Dedicated to creating safer workplaces through
-                world-class training and compliance solutions since 2010.</p>
-        </div>
-    </section>
+
 
     <!-- Mission & History -->
     <section class="py-20">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="relative">
+            <div class="grid md:grid-cols-2 mt-10 gap-12 items-center">
+                <div class="relative ">
                     <img src="assets/images/about-team-training.png" class="rounded-2xl shadow-2xl">
                     <div
                         class="absolute -bottom-10 -right-10 w-48 h-48 bg-gray-100 dark:bg-slate-800 rounded-2xl flex items-center justify-center shadow-xl border-4 border-white dark:border-slate-900 hidden md:flex">
@@ -190,7 +185,7 @@
     </section>
 
     <!-- Team -->
-    <section class="py-20 bg-gray-50 dark:bg-slate-900">
+    <section id="team" class="py-20 bg-gray-50 dark:bg-slate-900">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Meet Our Experts</h2>
@@ -350,57 +345,149 @@
     </section>
 
     <!-- Testimonials -->
-    <section class="py-20">
+    <section id="testimonials" class="py-20">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold text-slate-900 dark:text-white">What Our Clients Say</h2>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-8 border border-gray-100 dark:border-slate-700 rounded-2xl bg-white dark:bg-slate-800">
-                    <div class="flex text-yellow-500 mb-4 text-sm">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i>
+            <!-- Swiper Carousel -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide p-4">
+                        <div
+                            class="p-8 border border-gray-100 dark:border-slate-700 rounded-3xl bg-white dark:bg-slate-800 shadow-xl shadow-gray-200/20 dark:shadow-none h-full">
+                            <div class="flex text-yellow-500 mb-6 text-sm">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-400 mb-8 italic text-lg leading-relaxed">"The OSHA
+                                10-hour course was engaging and easy to follow. My entire team is now certified thanks
+                                to TrainComply Solutions."</p>
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 font-bold">
+                                    RF</div>
+                                <div>
+                                    <h5 class="font-bold text-slate-900 dark:text-white">Robert Fox</h5>
+                                    <p class="text-sm text-slate-500">Construction Manager</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <p class="text-slate-600 dark:text-slate-400 mb-6 italic">"The OSHA 10-hour course was engaging and
-                        easy to follow. My entire team is now certified thanks to TrainComply Solutions."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-slate-200 rounded-full"></div>
-                        <div>
-                            <h5 class="font-bold text-slate-900 dark:text-white text-sm">Robert Fox</h5>
-                            <p class="text-xs text-slate-500">Construction Manager</p>
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide p-4">
+                        <div
+                            class="p-8 border border-gray-100 dark:border-slate-700 rounded-3xl bg-white dark:bg-slate-800 shadow-xl shadow-gray-200/20 dark:shadow-none h-full">
+                            <div class="flex text-yellow-500 mb-6 text-sm">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-400 mb-8 italic text-lg leading-relaxed">"Excellent
+                                platform for tracking employee compliance. The admin dashboard saves us hours of
+                                paperwork every week."</p>
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center text-secondary-600 font-bold">
+                                    JW</div>
+                                <div>
+                                    <h5 class="font-bold text-slate-900 dark:text-white">Jenny Wilson</h5>
+                                    <p class="text-sm text-slate-500">HR Director</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide p-4">
+                        <div
+                            class="p-8 border border-gray-100 dark:border-slate-700 rounded-3xl bg-white dark:bg-slate-800 shadow-xl shadow-gray-200/20 dark:shadow-none h-full">
+                            <div class="flex text-yellow-500 mb-6 text-sm">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-400 mb-8 italic text-lg leading-relaxed">"Top notch
+                                instructors who actually have field experience. Highly recommend their HazMat training
+                                for any industrial site."</p>
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold">
+                                    GH</div>
+                                <div>
+                                    <h5 class="font-bold text-slate-900 dark:text-white">Guy Hawkins</h5>
+                                    <p class="text-sm text-slate-500">Safety Officer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="swiper-slide p-4">
+                        <div
+                            class="p-8 border border-gray-100 dark:border-slate-700 rounded-3xl bg-white dark:bg-slate-800 shadow-xl shadow-gray-200/20 dark:shadow-none h-full">
+                            <div class="flex text-yellow-500 mb-6 text-sm">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-400 mb-8 italic text-lg leading-relaxed">"The best
+                                investment we made for our company's safety culture. The courses are interactive and
+                                very informative."</p>
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold">
+                                    AC</div>
+                                <div>
+                                    <h5 class="font-bold text-slate-900 dark:text-white">Albert Cook</h5>
+                                    <p class="text-sm text-slate-500">Operation Manager</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 5 -->
+                    <div class="swiper-slide p-4">
+                        <div
+                            class="p-8 border border-gray-100 dark:border-slate-700 rounded-3xl bg-white dark:bg-slate-800 shadow-xl shadow-gray-200/20 dark:shadow-none h-full">
+                            <div class="flex text-yellow-500 mb-6 text-sm">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-400 mb-8 italic text-lg leading-relaxed">"Customer
+                                support is top-notch. They helped us set up a custom training plan for our 200+
+                                employees in no time."</p>
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-600 font-bold">
+                                    EM</div>
+                                <div>
+                                    <h5 class="font-bold text-slate-900 dark:text-white">Eleanor Moore</h5>
+                                    <p class="text-sm text-slate-500">Compliance Coordinator</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 6 -->
+                    <div class="swiper-slide p-4">
+                        <div
+                            class="p-8 border border-gray-100 dark:border-slate-700 rounded-3xl bg-white dark:bg-slate-800 shadow-xl shadow-gray-200/20 dark:shadow-none h-full">
+                            <div class="flex text-yellow-500 mb-6 text-sm">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-400 mb-8 italic text-lg leading-relaxed">
+                                "Certification process is seamless. Our workers get their credentials instantly upon
+                                completion. Highly efficient!"</p>
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold">
+                                    DB</div>
+                                <div>
+                                    <h5 class="font-bold text-slate-900 dark:text-white">Daniel Black</h5>
+                                    <p class="text-sm text-slate-500">Safety Director</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="p-8 border border-gray-100 dark:border-slate-700 rounded-2xl bg-white dark:bg-slate-800">
-                    <div class="flex text-yellow-500 mb-4 text-sm">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="text-slate-600 dark:text-slate-400 mb-6 italic">"Excellent platform for tracking employee
-                        compliance. The admin dashboard saves us hours of paperwork."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-slate-200 rounded-full"></div>
-                        <div>
-                            <h5 class="font-bold text-slate-900 dark:text-white text-sm">Jenny Wilson</h5>
-                            <p class="text-xs text-slate-500">HR Director</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-8 border border-gray-100 dark:border-slate-700 rounded-2xl bg-white dark:bg-slate-800">
-                    <div class="flex text-yellow-500 mb-4 text-sm">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="text-slate-600 dark:text-slate-400 mb-6 italic">"Top notch instructors who actually have
-                        field experience. Highly recommend their HazMat training."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-slate-200 rounded-full"></div>
-                        <div>
-                            <h5 class="font-bold text-slate-900 dark:text-white text-sm">Guy Hawkins</h5>
-                            <p class="text-xs text-slate-500">Safety Officer</p>
-                        </div>
-                    </div>
-                </div>
+                <!-- Pagination -->
+                <div class="swiper-pagination !-bottom-2"></div>
             </div>
         </div>
     </section>
@@ -426,8 +513,11 @@
                     <h4 class="text-white font-bold mb-6">Company</h4>
                     <ul class="space-y-3 text-sm">
                         <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Our Team</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Testimonials</a></li>
+                        <li><a href="about.html#team" class="hover:text-white transition-colors">Our Team</a></li>
+                        <li><a href="coming-soon.html" class="hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="404.html" class="hover:text-white transition-colors">Events</a></li>
+                        <li><a href="about.html#testimonials"
+                                class="hover:text-white transition-colors">Testimonials</a></li>
                         <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
                     </ul>
                 </div>
@@ -435,11 +525,15 @@
                 <div>
                     <h4 class="text-white font-bold mb-6">Popular Courses</h4>
                     <ul class="space-y-3 text-sm">
-                        <li><a href="#" class="hover:text-white transition-colors">OSHA 10-Hour</a></li>
-                        <li><a href="coming-soon.html" class="hover:text-white transition-colors">Forklift
+                        <li><a href="course-details.html?course=osha" class="hover:text-white transition-colors">OSHA
+                                10-Hour</a></li>
+                        <li><a href="course-details.html?course=forklift"
+                                class="hover:text-white transition-colors">Forklift
                                 Certification</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">First Aid / CPR</a></li>
-                        <li><a href="404.html" class="hover:text-white transition-colors">Electrical Safety</a></li>
+                        <li><a href="course-details.html?course=firstaid"
+                                class="hover:text-white transition-colors">First Aid / CPR</a></li>
+                        <li><a href="course-details.html?course=electrical"
+                                class="hover:text-white transition-colors">Electrical Safety</a></li>
                     </ul>
                 </div>
 
@@ -456,7 +550,8 @@
             </div>
             <div
                 class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
-                <p>&copy; 2026 TrainComply Solutions.</p>
+                <p>&copy; 2026 TrainComply Solutions. Developed by <a href="https://www.abhivorn.com/" target="_blank"
+                        class="hover:text-primary-500 transition-colors">Abhivorn Technologies pvt.ltd</a></p>
                 <div class="flex gap-6">
                     <a href="#" class="hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
                     <a href="#" class="hover:text-white transition-colors"><i class="fab fa-linkedin"></i></a>
@@ -465,7 +560,34 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+    </script>
 </body>
 
 </html>

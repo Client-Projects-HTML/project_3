@@ -4,9 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TrainComply Solutions | Blog</title>
+    <title>TrainComply Solutions | Blog Details</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -30,12 +39,13 @@
     </style>
 </head>
 
-<body class="bg-gray-50 dark:bg-slate-900 text-slate-600 dark:text-slate-300 font-sans">
+<body class="bg-gray-50 dark:bg-slate-950 text-slate-600 dark:text-slate-300 font-sans antialiased">
     <!-- Navbar -->
-    <nav class="fixed w-full z-50 glass-nav" id="navbar">
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <div class="flex items-center gap-2">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 rtl:flex-row-reverse">
                     <div
                         class="w-10 h-10 bg-gradient-to-br from-primary-600 to-primary-500 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
                         <i class="fas fa-hard-hat"></i>
@@ -43,6 +53,7 @@
                     <span class="font-heading font-bold text-2xl text-slate-900 dark:text-white">TrainComply<span
                             class="text-primary-600">Solutions</span></span>
                 </div>
+
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center gap-8">
                     <a href="index.html"
@@ -74,6 +85,7 @@
                     <a href="contact.html"
                         class="text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors">Contact</a>
                 </div>
+
                 <!-- Actions -->
                 <div class="hidden md:flex items-center gap-4 rtl:flex-row-reverse">
                     <a href="admin/login.html"
@@ -91,10 +103,16 @@
                         RTL
                     </button>
                 </div>
-                <button class="md:hidden text-2xl" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-slate-600 dark:text-slate-300 text-2xl" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Menu -->
     <div id="mobileMenu"
         class="fixed inset-0 z-40 bg-white dark:bg-slate-950 transform translate-x-full transition-transform duration-300 md:hidden pt-24 px-6 overflow-y-auto">
         <div class="flex flex-col space-y-4 pb-8">
@@ -124,106 +142,49 @@
         </div>
     </div>
 
-    <div class="py-20 max-w-7xl mx-auto px-4">
-        <h1 class="text-4xl font-bold text-slate-900 dark:text-white mb-12 text-center">Safety Insights Blog</h1>
+    <main class="pt-32 pb-20">
+        <div class="max-w-4xl mx-auto px-4">
+            <!-- Back to Blog -->
+            <a href="blog.html"
+                class="inline-flex items-center gap-2 text-primary-600 font-semibold mb-8 hover:gap-3 transition-all">
+                <i class="fas fa-arrow-left text-sm"></i> Back to Blog
+            </a>
 
-        <div class="grid md:grid-cols-3 gap-8">
-            <article
-                class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=800&auto=format&fit=crop"
-                    class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <span class="text-xs font-bold text-primary-600 uppercase tracking-wide">Compliance</span>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-2 mb-3">Top 5 OSHA Violations in 2025
-                    </h3>
-                    <p class="text-slate-500 text-sm mb-4">Learn about the most common citations cited by OSHA
-                        inspectors this year and how to avoid them.</p>
-                    <a href="blog-details.html?post=osha-violations-2025"
-                        class="text-primary-600 font-medium hover:underline">Read Article</a>
+            <!-- Article Header -->
+            <div class="mb-12">
+                <span id="postCategory"
+                    class="px-3 py-1 bg-primary-50 dark:bg-slate-800 text-primary-600 rounded-full text-xs font-bold uppercase tracking-wider mb-4 inline-block">Compliance</span>
+                <h1 id="postTitle"
+                    class="text-4xl md:text-5xl font-heading font-bold text-slate-900 dark:text-white mb-6 leading-tight">
+                    Article Title</h1>
+                <div class="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400">
+                    <span id="postDate"><i class="far fa-calendar-alt mr-2"></i> Oct 24, 2025</span>
+                    <span id="postReadTime"><i class="far fa-clock mr-2"></i> 5 min read</span>
                 </div>
-            </article>
+            </div>
 
-            <article
-                class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=800&auto=format&fit=crop"
-                    class="w-full h-48 object-cover" alt="Industrial worker micro-learning">
-                <div class="p-6">
-                    <span class="text-xs font-bold text-primary-600 uppercase tracking-wide">Training</span>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-2 mb-3">Why Micro-Learning is the
-                        Future of Safety</h3>
-                    <p class="text-slate-500 text-sm mb-4">Short, focused training modules are proving to be more
-                        effective than day-long seminars.</p>
-                    <a href="blog-details.html?post=micro-learning-future"
-                        class="text-primary-600 font-medium hover:underline">Read Article</a>
-                </div>
-            </article>
+            <!-- Featured Image -->
+            <div class="rounded-3xl overflow-hidden shadow-2xl mb-12">
+                <img id="postImage" src="" alt="Blog Featured Image" class="w-full h-[400px] object-cover">
+            </div>
 
-            <article
-                class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                <img src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?q=80&w=800&auto=format&fit=crop"
-                    class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <span class="text-xs font-bold text-primary-600 uppercase tracking-wide">Equipment</span>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-2 mb-3">PPE Checklist for Electrical
-                        Work</h3>
-                    <p class="text-slate-500 text-sm mb-4">Essential personal protective equipment every electrician
-                        needs to stay safe on the job.</p>
-                    <a href="blog-details.html?post=ppe-checklist-electrical"
-                        class="text-primary-600 font-medium hover:underline">Read Article</a>
-                </div>
-            </article>
+            <!-- Content Area -->
+            <div id="postContent"
+                class="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-400 leading-relaxed space-y-6">
+                <!-- Content will be injected here -->
+            </div>
 
-            <!-- New Article 4 -->
-            <article
-                class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                <img src="https://images.unsplash.com/photo-1513128034602-7814ccaddd4e?q=80&w=800&auto=format&fit=crop"
-                    class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <span class="text-xs font-bold text-primary-600 uppercase tracking-wide">Culture</span>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-2 mb-3">Building a Safety-First
-                        Culture</h3>
-                    <p class="text-slate-500 text-sm mb-4">How leadership can drive a proactive safety mindset across
-                        the entire organization.</p>
-                    <a href="blog-details.html?post=safety-first-culture"
-                        class="text-primary-600 font-medium hover:underline">Read Article</a>
+            <!-- Related Posts Placeholder -->
+            <div class="mt-20 pt-10 border-t border-gray-100 dark:border-slate-800">
+                <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-8">Related Articles</h3>
+                <div id="relatedPosts" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Related posts will be injected here -->
                 </div>
-            </article>
-
-            <!-- New Article 5 -->
-            <article
-                class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                <img src="https://images.unsplash.com/photo-1582139329536-e7284fece509?q=80&w=800&auto=format&fit=crop"
-                    class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <span class="text-xs font-bold text-primary-600 uppercase tracking-wide">Emergency</span>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-2 mb-3">Evacuation Drill Best
-                        Practices</h3>
-                    <p class="text-slate-500 text-sm mb-4">Ensure your team is prepared for any emergency with these
-                        drill and planning tips.</p>
-                    <a href="blog-details.html?post=evacuation-drill-practices"
-                        class="text-primary-600 font-medium hover:underline">Read Article</a>
-                </div>
-            </article>
-
-            <!-- New Article 6 -->
-            <article
-                class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                <img src="https://images.unsplash.com/photo-1454165833222-3853b4968f21?q=80&w=800&auto=format&fit=crop"
-                    class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <span class="text-xs font-bold text-primary-600 uppercase tracking-wide">Mental Health</span>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-2 mb-3">Workplace Fatigue & Safety
-                    </h3>
-                    <p class="text-slate-500 text-sm mb-4">Understanding the impact of exhaustion on workplace accidents
-                        and how to mitigate risk.</p>
-                    <a href="blog-details.html?post=fatigue-workplace-safety"
-                        class="text-primary-600 font-medium hover:underline">Read Article</a>
-                </div>
-            </article>
+            </div>
         </div>
-    </div>
+    </main>
 
-    <!-- Footer -->
+    <!-- Footer same as index.html -->
     <footer class="bg-slate-900 text-slate-300 py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-12 mb-12">
@@ -256,11 +217,15 @@
                 <div>
                     <h4 class="text-white font-bold mb-6">Popular Courses</h4>
                     <ul class="space-y-3 text-sm">
-                        <li><a href="#" class="hover:text-white transition-colors">OSHA 10-Hour</a></li>
-                        <li><a href="coming-soon.html" class="hover:text-white transition-colors">Forklift
+                        <li><a href="course-details.html?course=osha" class="hover:text-white transition-colors">OSHA
+                                10-Hour</a></li>
+                        <li><a href="course-details.html?course=forklift"
+                                class="hover:text-white transition-colors">Forklift
                                 Certification</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">First Aid / CPR</a></li>
-                        <li><a href="404.html" class="hover:text-white transition-colors">Electrical Safety</a></li>
+                        <li><a href="course-details.html?course=firstaid"
+                                class="hover:text-white transition-colors">First Aid / CPR</a></li>
+                        <li><a href="course-details.html?course=electrical"
+                                class="hover:text-white transition-colors">Electrical Safety</a></li>
                     </ul>
                 </div>
 
@@ -286,7 +251,9 @@
             </div>
         </div>
     </footer>
+
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/blog.js"></script>
 </body>
 
 </html>

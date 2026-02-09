@@ -119,6 +119,36 @@
         </div>
     </div>
 
+    <!-- Theme Toggle Button -->
+    <button id="themeToggle"
+        class="fixed top-6 right-6 w-12 h-12 rounded-full bg-white dark:bg-slate-800 border-2 border-gray-200 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all hover:scale-110 flex items-center justify-center text-slate-600 dark:text-slate-300 z-50">
+        <i class="fas fa-moon dark:hidden"></i>
+        <i class="fas fa-sun hidden dark:block"></i>
+    </button>
+
+    <!-- Dark Mode Script -->
+    <script>
+        // Dark Mode Check - Run immediately to prevent flash
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Toggle Theme
+        const themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                if (document.documentElement.classList.contains('dark')) {
+                    localStorage.theme = 'dark';
+                } else {
+                    localStorage.theme = 'light';
+                }
+            });
+        }
+    </script>
+
 </body>
 
 </html>

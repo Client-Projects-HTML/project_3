@@ -291,15 +291,14 @@
                             <i class="fas fa-hard-hat"></i>
                         </div>
                     </div>
-                    <div class="pt-32 px-8 pb-8">
+                    <div class="pt-32 px-8 pb-8 relative z-10">
                         <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">OSHA Construction</h3>
                         <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">OSHA 10-Hour and 30-Hour
                             training
                             for construction industry professionals.</p>
-                        <a href="service-details.html"
-                            class="text-primary-600 font-semibold flex items-center gap-2 group">
-                            View Curriculum <i
-                                class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+                        <a href="course-details.html?course=osha"
+                            class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-xl font-bold shadow-lg shadow-primary-600/20 hover:bg-primary-700 transition-all after:absolute after:inset-0">
+                            View Curriculum <i class="fas fa-arrow-right text-xs"></i>
                         </a>
                     </div>
                 </div>
@@ -317,13 +316,13 @@
                             <i class="fas fa-fire-extinguisher"></i>
                         </div>
                     </div>
-                    <div class="pt-32 px-8 pb-8">
+                    <div class="pt-32 px-8 pb-8 relative z-10">
                         <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Fire Safety</h3>
                         <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">Essential fire prevention,
                             suppression, and emergency evacuation protocols.</p>
-                        <a href="service-details.html" class="text-red-600 font-semibold flex items-center gap-2 group">
-                            View Curriculum <i
-                                class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+                        <a href="course-details.html?course=fire"
+                            class="inline-flex items-center gap-2 px-6 py-3 bg-red-600 text-white rounded-xl font-bold shadow-lg shadow-red-600/20 hover:bg-red-700 transition-all after:absolute after:inset-0">
+                            View Curriculum <i class="fas fa-arrow-right text-xs"></i>
                         </a>
                     </div>
                 </div>
@@ -341,14 +340,13 @@
                             <i class="fas fa-biohazard"></i>
                         </div>
                     </div>
-                    <div class="pt-32 px-8 pb-8">
+                    <div class="pt-32 px-8 pb-8 relative z-10">
                         <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">HazMat Training</h3>
                         <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">Proper handling, storage, and
                             disposal of hazardous materials in the workplace.</p>
-                        <a href="service-details.html"
-                            class="text-yellow-600 font-semibold flex items-center gap-2 group">
-                            View Curriculum <i
-                                class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+                        <a href="course-details.html?course=hazmat"
+                            class="inline-flex items-center gap-2 px-6 py-3 bg-yellow-500 text-white rounded-xl font-bold shadow-lg shadow-yellow-500/20 hover:bg-yellow-600 transition-all after:absolute after:inset-0">
+                            View Curriculum <i class="fas fa-arrow-right text-xs"></i>
                         </a>
                     </div>
                 </div>
@@ -376,21 +374,28 @@
                 <div>
                     <h4 class="text-white font-bold mb-6">Company</h4>
                     <ul class="space-y-3 text-sm">
-                        <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Our Team</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Testimonials</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="about.html#team" class="hover:text-white transition-colors">Our Team</a></li>
+                        <li><a href="coming-soon.html" class="hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="404.html" class="hover:text-white transition-colors">Events</a></li>
+                        <li><a href="about.html#testimonials"
+                                class="hover:text-white transition-colors">Testimonials</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
                     </ul>
                 </div>
 
                 <div>
                     <h4 class="text-white font-bold mb-6">Popular Courses</h4>
                     <ul class="space-y-3 text-sm">
-                        <li><a href="#" class="hover:text-white transition-colors">OSHA 10-Hour</a></li>
-                        <li><a href="coming-soon.html" class="hover:text-white transition-colors">Forklift
+                        <li><a href="course-details.html?course=osha" class="hover:text-white transition-colors">OSHA
+                                10-Hour</a></li>
+                        <li><a href="course-details.html?course=forklift"
+                                class="hover:text-white transition-colors">Forklift
                                 Certification</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">First Aid / CPR</a></li>
-                        <li><a href="404.html" class="hover:text-white transition-colors">Electrical Safety</a></li>
+                        <li><a href="course-details.html?course=firstaid"
+                                class="hover:text-white transition-colors">First Aid / CPR</a></li>
+                        <li><a href="course-details.html?course=electrical"
+                                class="hover:text-white transition-colors">Electrical Safety</a></li>
                     </ul>
                 </div>
 
@@ -407,7 +412,8 @@
             </div>
             <div
                 class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
-                <p>&copy; 2026 TrainComply Solutions.</p>
+                <p>&copy; 2026 TrainComply Solutions. Developed by <a href="https://www.abhivorn.com/" target="_blank"
+                        class="hover:text-primary-500 transition-colors">Abhivorn Technologies pvt.ltd</a></p>
                 <div class="flex gap-6">
                     <a href="#" class="hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
                     <a href="#" class="hover:text-white transition-colors"><i class="fab fa-linkedin"></i></a>

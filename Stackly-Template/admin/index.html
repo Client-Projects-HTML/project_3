@@ -47,8 +47,8 @@
             <div class="h-16 flex items-center px-4 border-b border-gray-200 dark:border-slate-700">
                 <div class="flex items-center gap-2">
                     <div
-                        class="w-8 h-8 bg-gradient-to-br from-primary-600 to-primary-500 rounded-lg flex items-center justify-center text-white font-bold text-sm shadow-lg">
-                        <i class="fas fa-hard-hat"></i>
+                        class="w-9 h-9 bg-gradient-to-br from-primary-600 to-primary-500 rounded-lg flex items-center justify-center text-white shadow-lg">
+                        <i class="fas fa-hard-hat text-base"></i>
                     </div>
                     <span
                         class="font-heading font-bold text-lg tracking-tight text-slate-900 dark:text-white">TrainComply<span
@@ -106,23 +106,12 @@
             <!-- Top Header -->
             <header
                 class="h-16 bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700 flex items-center justify-between px-6 z-10">
-                <div class="flex items-center gap-4">
-                    <button id="sidebarToggle"
-                        class="md:hidden text-slate-500 dark:text-slate-200 hover:text-slate-700 dark:hover:text-white">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                    <!-- Mobile Logo -->
-                    <div class="md:hidden flex items-center gap-2">
-                        <div
-                            class="w-8 h-8 bg-gradient-to-br from-primary-600 to-primary-500 rounded-lg flex items-center justify-center text-white font-bold text-sm shadow-sm">
-                            <i class="fas fa-hard-hat"></i>
-                        </div>
-                        <span class="font-heading font-bold text-lg text-slate-900 dark:text-white">TrainComply<span
-                                class="text-primary-600">Solutions</span></span>
-                    </div>
-                </div>
+                <button id="sidebarToggle"
+                    class="md:hidden text-slate-500 dark:text-slate-200 hover:text-slate-700 dark:hover:text-white">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
 
-                <div class="hidden md:block flex-1"></div>
+                <div class="flex-1 md:flex-none"></div>
 
                 <div class="flex items-center gap-4">
                     <button id="themeToggle"
@@ -153,10 +142,6 @@
                         <p class="text-slate-500 dark:text-slate-400 mt-1">Track employee certifications and training
                             compliance.</p>
                     </div>
-                    <button
-                        class="hidden md:flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-medium transition-colors shadow-lg shadow-primary-600/30">
-                        <i class="fas fa-download text-sm"></i> Download Report
-                    </button>
                 </div>
 
                 <!-- Stats Grid -->
@@ -253,7 +238,8 @@
                     class="bg-white dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 shadow-sm overflow-hidden">
                     <div class="p-6 border-b border-gray-100 dark:border-slate-700 flex justify-between items-center">
                         <h3 class="font-bold text-slate-900 dark:text-white">Recent Certifications</h3>
-                        <a href="#" class="text-primary-600 text-sm font-medium hover:underline">View All Records</a>
+                        <a href="certifications.html" class="text-primary-600 text-sm font-medium hover:underline">View
+                            All Records</a>
                     </div>
                     <div class="overflow-x-auto">
                         <table class="w-full text-left text-sm text-slate-600 dark:text-slate-400">

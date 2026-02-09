@@ -44,13 +44,14 @@
         <!-- Sidebar -->
         <aside id="sidebar"
             class="w-64 bg-white dark:bg-slate-800 border-r border-gray-200 dark:border-slate-700 fixed md:static inset-y-0 left-0 z-50 transform -translate-x-full md:translate-x-0 transition-transform duration-300 flex flex-col">
-            <div class="h-16 flex items-center px-6 border-b border-gray-200 dark:border-slate-700">
+            <div class="h-16 flex items-center px-4 border-b border-gray-200 dark:border-slate-700">
                 <div class="flex items-center gap-2">
                     <div
-                        class="w-10 h-10 bg-gradient-to-br from-primary-600 to-primary-500 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                        <i class="fas fa-hard-hat"></i>
+                        class="w-9 h-9 bg-gradient-to-br from-primary-600 to-primary-500 rounded-lg flex items-center justify-center text-white shadow-lg">
+                        <i class="fas fa-hard-hat text-base"></i>
                     </div>
-                    <span class="font-heading font-bold text-2xl text-slate-900 dark:text-white">TrainComply<span
+                    <span
+                        class="font-heading font-bold text-lg tracking-tight text-slate-900 dark:text-white">TrainComply<span
                             class="text-primary-600">Solutions</span></span>
                 </div>
             </div>
@@ -141,23 +142,59 @@
                         <p class="text-slate-500 dark:text-slate-400 mt-1">Manage employee records, roles, and training.
                         </p>
                     </div>
-                    <button
-                        class="hidden md:flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-medium transition-colors shadow-lg shadow-primary-600/30">
+                    <button id="addEmployeeBtn"
+                        class="hidden md:flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-medium transition-all shadow-lg shadow-primary-600/30 hover:scale-105 active:scale-95">
                         <i class="fas fa-user-plus text-sm"></i> Add Employee
                     </button>
                 </div>
 
-
-
+                <!-- Filter/Action Bar -->
+                <div
+                    class="mb-8 flex flex-wrap gap-4 items-center bg-white dark:bg-slate-800 p-4 rounded-xl border border-gray-100 dark:border-slate-700 shadow-sm">
+                    <div class="relative flex-1 min-w-[200px]">
+                        <i class="fas fa-search absolute left-3 top-3 text-slate-400"></i>
+                        <input id="searchInput" type="text" placeholder="Search by name, email, or role..."
+                            class="w-full pl-10 pr-4 py-2 bg-gray-50 dark:bg-slate-700 rounded-lg border-none focus:ring-2 focus:ring-primary-500 outline-none text-sm text-slate-900 dark:text-white">
+                    </div>
+                    <select id="departmentFilter"
+                        class="px-4 py-2 bg-gray-50 dark:bg-slate-700 rounded-lg border-none focus:ring-2 focus:ring-primary-500 outline-none text-sm text-slate-600 dark:text-slate-300">
+                        <option value="">All Departments</option>
+                        <option value="Operations">Operations</option>
+                        <option value="Production">Production</option>
+                        <option value="Maintenance">Maintenance</option>
+                        <option value="Safety">Safety</option>
+                    </select>
+                    <select id="statusFilter"
+                        class="px-4 py-2 bg-gray-50 dark:bg-slate-700 rounded-lg border-none focus:ring-2 focus:ring-primary-500 outline-none text-sm text-slate-600 dark:text-slate-300">
+                        <option value="">All Statuses</option>
+                        <option value="Active">Active</option>
+                        <option value="On Leave">On Leave</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+                    <button id="exportBtn"
+                        class="px-4 py-2 bg-gray-50 dark:bg-slate-700 hover:bg-gray-100 dark:hover:bg-slate-600 rounded-lg text-slate-600 dark:text-slate-300 text-sm font-medium transition-all hover:scale-105">
+                        <i class="fas fa-download mr-1"></i> Export
+                    </button>
+                </div>
                 <!-- Recent Certifications Table -->
                 <div
                     class="bg-white dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 shadow-sm overflow-hidden">
                     <div class="p-6 border-b border-gray-100 dark:border-slate-700 flex justify-between items-center">
-                        <h3 class="font-bold text-slate-900 dark:text-white">Employee Directory</h3>
-                        <div class="relative">
-                            <input type="text" placeholder="Search employees..."
-                                class="pl-8 pr-4 py-2 text-sm border border-gray-200 dark:border-slate-700 rounded-lg bg-gray-50 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary-500">
-                            <i class="fas fa-search absolute left-3 top-2.5 text-slate-400 text-xs"></i>
+                        <div>
+                            <h3 class="font-bold text-slate-900 dark:text-white">Employee Directory</h3>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Showing <span
+                                    id="showingCount">0</span> of <span id="totalCount">0</span> employees</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button id="prevPage"
+                                class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700 text-slate-500 transition-all hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <div id="paginationNumbers" class="flex gap-1"></div>
+                            <button id="nextPage"
+                                class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700 text-slate-500 transition-all hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
                         </div>
                     </div>
                     <div class="overflow-x-auto">
@@ -172,7 +209,7 @@
                                     <th class="px-6 py-4 text-right">Actions</th>
                                 </tr>
                             </thead>
-                            <tbody class="divide-y divide-gray-100 dark:divide-slate-700">
+                            <tbody id="employeesTableBody" class="divide-y divide-gray-100 dark:divide-slate-700">
                                 <tr class="hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors">
                                     <td class="px-6 py-4 flex items-center gap-3">
                                         <div
@@ -347,31 +384,249 @@
         sidebarToggle.addEventListener('click', toggleSidebar);
         sidebarOverlay.addEventListener('click', toggleSidebar);
 
-        // -- Charts Initialization --
-        new Chart(document.getElementById('revenueChart'), {
-            type: 'line',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Oct'],
-                datasets: [{
-                    label: 'Certifications Issued',
-                    data: [120, 190, 150, 250, 220, 280],
-                    borderColor: '#4f46e5',
-                    backgroundColor: 'rgba(79, 70, 229, 0.1)',
-                    fill: true,
-                    tension: 0.4
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { display: false }
-                },
-                scales: {
-                    y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
-                    x: { grid: { display: false } }
+        // ===== EMPLOYEE DATA & FILTERING SYSTEM =====
+
+        // Sample employee data (in real app, this would come from API)
+        const allEmployees = [
+            { id: 1, name: 'John Doe', initials: 'JD', email: 'john.doe@company.com', role: 'Safety Officer', department: 'Operations', compliance: 95, status: 'Active' },
+            { id: 2, name: 'Alice Smith', initials: 'AS', email: 'alice.smith@company.com', role: 'Plant Manager', department: 'Production', compliance: 70, status: 'Active' },
+            { id: 3, name: 'Robert King', initials: 'RK', email: 'robert.king@company.com', role: 'Technician', department: 'Maintenance', compliance: 45, status: 'On Leave' },
+            { id: 4, name: 'Sarah Johnson', initials: 'SJ', email: 'sarah.johnson@company.com', role: 'Safety Coordinator', department: 'Safety', compliance: 88, status: 'Active' },
+            { id: 5, name: 'Michael Brown', initials: 'MB', email: 'michael.brown@company.com', role: 'Operator', department: 'Production', compliance: 92, status: 'Active' },
+            { id: 6, name: 'Emily Davis', initials: 'ED', email: 'emily.davis@company.com', role: 'Supervisor', department: 'Operations', compliance: 78, status: 'Active' },
+            { id: 7, name: 'David Wilson', initials: 'DW', email: 'david.wilson@company.com', role: 'Mechanic', department: 'Maintenance', compliance: 55, status: 'On Leave' },
+            { id: 8, name: 'Lisa Anderson', initials: 'LA', email: 'lisa.anderson@company.com', role: 'Quality Inspector', department: 'Production', compliance: 85, status: 'Active' },
+            { id: 9, name: 'James Taylor', initials: 'JT', email: 'james.taylor@company.com', role: 'Foreman', department: 'Operations', compliance: 90, status: 'Active' },
+            { id: 10, name: 'Maria Garcia', initials: 'MG', email: 'maria.garcia@company.com', role: 'Technician', department: 'Maintenance', compliance: 62, status: 'Inactive' },
+        ];
+
+        // Pagination and filtering state
+        let currentPage = 1;
+        let itemsPerPage = 5;
+        let filteredData = [...allEmployees];
+        let searchTerm = '';
+        let departmentFilter = '';
+        let statusFilter = '';
+
+        // Get compliance bar color
+        function getComplianceColor(score) {
+            if (score >= 80) return 'bg-primary-600';
+            if (score >= 60) return 'bg-yellow-400';
+            return 'bg-red-500';
+        }
+
+        // Get status badge HTML
+        function getStatusBadge(status) {
+            const badges = {
+                'Active': '<span class="px-2 py-1 rounded-full bg-green-100 text-green-700 text-xs font-medium">Active</span>',
+                'On Leave': '<span class="px-2 py-1 rounded-full bg-gray-100 text-gray-700 text-xs font-medium">On Leave</span>',
+                'Inactive': '<span class="px-2 py-1 rounded-full bg-red-100 text-red-700 text-xs font-medium">Inactive</span>'
+            };
+            return badges[status] || status;
+        }
+
+        // Render table rows
+        function renderTable() {
+            const tbody = document.getElementById('employeesTableBody');
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const pageData = filteredData.slice(startIndex, endIndex);
+
+            if (pageData.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="6" class="px-6 py-12 text-center text-slate-500 dark:text-slate-400">
+                            <i class="fas fa-users text-4xl mb-3 opacity-50"></i>
+                            <p class="font-medium">No employees found</p>
+                            <p class="text-sm mt-1">Try adjusting your filters or search terms</p>
+                        </td>
+                    </tr>
+                `;
+            } else {
+                tbody.innerHTML = pageData.map(emp => `
+                    <tr class="hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors">
+                        <td class="px-6 py-4 flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center text-xs font-bold text-white">
+                                ${emp.initials}
+                            </div>
+                            <div>
+                                <div class="font-medium text-slate-900 dark:text-white">${emp.name}</div>
+                                <div class="text-xs text-slate-500">${emp.email}</div>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">${emp.role}</td>
+                        <td class="px-6 py-4">${emp.department}</td>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-2">
+                                <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 w-24">
+                                    <div class="${getComplianceColor(emp.compliance)} h-2.5 rounded-full transition-all" style="width: ${emp.compliance}%"></div>
+                                </div>
+                                <span class="text-xs font-medium">${emp.compliance}%</span>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">${getStatusBadge(emp.status)}</td>
+                        <td class="px-6 py-4 text-right">
+                            <button class="text-slate-400 hover:text-primary-600 px-2 transition-colors" title="Edit employee">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="text-slate-400 hover:text-red-600 px-2 transition-colors" title="Delete employee">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `).join('');
+            }
+
+            updatePaginationInfo();
+            renderPagination();
+        }
+
+        // Update pagination info
+        function updatePaginationInfo() {
+            const showingCount = document.getElementById('showingCount');
+            const totalCount = document.getElementById('totalCount');
+            const startIndex = (currentPage - 1) * itemsPerPage + 1;
+            const endIndex = Math.min(currentPage * itemsPerPage, filteredData.length);
+
+            showingCount.textContent = filteredData.length > 0 ? `${startIndex}-${endIndex}` : '0';
+            totalCount.textContent = filteredData.length;
+        }
+
+        // Render pagination buttons
+        function renderPagination() {
+            const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+            const paginationNumbers = document.getElementById('paginationNumbers');
+            const prevBtn = document.getElementById('prevPage');
+            const nextBtn = document.getElementById('nextPage');
+
+            // Enable/disable prev/next buttons
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === totalPages || totalPages === 0;
+
+            // Generate page numbers
+            let pages = [];
+            if (totalPages <= 5) {
+                pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+            } else {
+                if (currentPage <= 3) {
+                    pages = [1, 2, 3, 4, '...', totalPages];
+                } else if (currentPage >= totalPages - 2) {
+                    pages = [1, '...', totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
+                } else {
+                    pages = [1, '...', currentPage - 1, currentPage, currentPage + 1, '...', totalPages];
                 }
             }
+
+            paginationNumbers.innerHTML = pages.map(page => {
+                if (page === '...') {
+                    return '<span class="px-2 text-slate-400">...</span>';
+                }
+                const isActive = page === currentPage;
+                return `
+                    <button 
+                        class="w-8 h-8 flex items-center justify-center rounded-lg text-sm font-medium transition-all
+                               ${isActive
+                        ? 'bg-primary-600 text-white shadow-lg shadow-primary-600/30'
+                        : 'text-slate-600 dark:text-slate-400 hover:bg-gray-100 dark:hover:bg-slate-700 hover:scale-110'}"
+                        onclick="goToPage(${page})"
+                    >
+                        ${page}
+                    </button>
+                `;
+            }).join('');
+        }
+
+        // Go to specific page
+        window.goToPage = function (page) {
+            currentPage = page;
+            renderTable();
+        };
+
+        // Previous page
+        document.getElementById('prevPage').addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                renderTable();
+            }
         });
+
+        // Next page
+        document.getElementById('nextPage').addEventListener('click', () => {
+            const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+            if (currentPage < totalPages) {
+                currentPage++;
+                renderTable();
+            }
+        });
+
+        // Apply filters
+        function applyFilters() {
+            filteredData = allEmployees.filter(emp => {
+                // Search filter
+                const matchesSearch = searchTerm === '' ||
+                    emp.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    emp.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    emp.role.toLowerCase().includes(searchTerm.toLowerCase());
+
+                // Department filter
+                const matchesDepartment = departmentFilter === '' || emp.department === departmentFilter;
+
+                // Status filter
+                const matchesStatus = statusFilter === '' || emp.status === statusFilter;
+
+                return matchesSearch && matchesDepartment && matchesStatus;
+            });
+
+            currentPage = 1; // Reset to first page when filters change
+            renderTable();
+        }
+
+        // Search input
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', (e) => {
+            searchTerm = e.target.value;
+            applyFilters();
+        });
+
+        // Department filter
+        const departmentFilterSelect = document.getElementById('departmentFilter');
+        departmentFilterSelect.addEventListener('change', (e) => {
+            departmentFilter = e.target.value;
+            applyFilters();
+        });
+
+        // Status filter
+        const statusFilterSelect = document.getElementById('statusFilter');
+        statusFilterSelect.addEventListener('change', (e) => {
+            statusFilter = e.target.value;
+            applyFilters();
+        });
+
+        // Export button
+        document.getElementById('exportBtn').addEventListener('click', () => {
+            const csvContent = 'Name,Email,Role,Department,Compliance,Status\n' +
+                filteredData.map(emp =>
+                    `"${emp.name}","${emp.email}","${emp.role}","${emp.department}",${emp.compliance}%,"${emp.status}"`
+                ).join('\n');
+
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `employees_${new Date().toISOString().split('T')[0]}.csv`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        });
+
+        // Add Employee button
+        document.getElementById('addEmployeeBtn').addEventListener('click', () => {
+            alert('Add new employee modal would open here!');
+        });
+
+        // Initial render
+        renderTable();
     </script>
 </body>
 
