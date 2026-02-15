@@ -4,17 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TrainComply Solutions | Training Courses</title>
+    <meta name="description"
+        content="Home Page 1 - General Services Landing with a modern multi-service layout">
+    <title>TrainComply Solutions | Home Page 1 - General Services</title>
+
     <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-    <!-- Tailwind CSS -->
+
+    <!-- Tailwind CSS (CDN for Dev/Preview) -->
     <script src="https://cdn.tailwindcss.com"></script>
+
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-    <!-- Config (Same as index) -->
+
+    <!-- Configuration -->
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -25,21 +33,47 @@
                         heading: ['"Outfit"', 'sans-serif'],
                     },
                     colors: {
-                        primary: { 50: '#eef2ff', 500: '#f59e0b', 600: '#d97706', 700: '#b45309' },
-                        secondary: { 500: '#3b82f6' }
+                        primary: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#f59e0b', // Safety Orange/Yellow tone
+                            600: '#d97706',
+                            700: '#b45309',
+                            900: '#78350f',
+                        },
+                        secondary: {
+                            500: '#3b82f6', // Trust Blue
+                            600: '#2563eb',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
                     }
                 }
             }
         }
     </script>
+
     <style type="text/tailwindcss">
         @layer utilities {
-            .glass-nav { @apply bg-white dark:bg-slate-900 border-b border-gray-100 dark:border-slate-800; }
+            .glass-nav {
+                @apply bg-white dark:bg-slate-900 border-b border-gray-100 dark:border-slate-800;
+            }
+            .glass-card {
+                @apply bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 shadow-xl shadow-gray-200/50 dark:shadow-none;
+            }
         }
     </style>
 </head>
 
-<body class="bg-white dark:bg-slate-950 text-slate-600 dark:text-slate-300 font-sans antialiased">
+<body
+    class="bg-white dark:bg-slate-950 text-slate-600 dark:text-slate-300 font-sans antialiased selection:bg-primary-500 selection:text-white">
 
     <!-- Navbar -->
     <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
@@ -153,6 +187,8 @@
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Menu -->
     <div id="mobileMenu"
         class="fixed inset-0 z-40 bg-white dark:bg-slate-950 transform translate-x-full transition-transform duration-300 lg:hidden pt-24 px-6 overflow-y-auto">
         <div class="flex flex-col space-y-4 pb-8">
@@ -213,275 +249,251 @@
         </div>
     </div>
 
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Background Blobs -->
+        <div
+            class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl opacity-50 dark:opacity-30 animate-pulse">
+        </div>
+        <div
+            class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-secondary-500/10 rounded-full blur-3xl opacity-50 dark:opacity-30">
+        </div>
 
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                <!-- Content -->
+                <div class="text-center lg:text-left">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-50 dark:bg-slate-800 border border-primary-100 dark:border-slate-700 text-primary-600 dark:text-primary-400 text-sm font-medium mb-6">
+                        <span class="flex h-2 w-2 relative">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+                        </span>
+                        Modern General Services Platform
+                    </div>
+                    <h1
+                        class="font-heading text-4xl lg:text-6xl font-extrabold text-slate-900 dark:text-white leading-tight mb-6">
+                        Home Page 1 <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-primary-500">General Services Landing</span>
+                    </h1>
+                    <p
+                        class="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        A modern landing experience for broad service businesses with clear categories, trust indicators, and conversion-focused calls to action.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="services.html"
+                            class="px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white rounded-xl font-semibold shadow-xl shadow-primary-600/30 transition-all hover:-translate-y-1">
+                            Explore Services
+                        </a>
+                        <a href="contact.html"
+                            class="px-8 py-4 bg-white dark:bg-slate-800 text-slate-700 dark:text-white border border-gray-200 dark:border-slate-700 rounded-xl font-semibold hover:bg-gray-50 dark:hover:bg-slate-700 transition-all">
+                            Request Consultation
+                        </a>
+                    </div>
 
-    <!-- Courses Grid -->
-    <section class="py-20 ">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid md:grid-cols-3 gap-8 mt-10">
-                <!-- Course 1 -->
+                    <div
+                        class="mt-10 flex items-center justify-center lg:justify-start gap-4 text-sm font-semibold text-slate-500 dark:text-slate-400">
+                        <i class="fas fa-check text-green-500"></i> OSHA Compliant
+                        <i class="fas fa-check text-green-500 ml-4"></i> Accredited Instructors
+                    </div>
+                </div>
+
+                <!-- Image -->
+                <div class="relative lg:h-[600px] flex items-center justify-center">
+                    <div class="relative z-10 animate-float text-center">
+                        <img src="assets/images/hero-safety-worker.png" alt="Industrial Safety Worker"
+                            class="rounded-2xl shadow-2xl border-4 border-white dark:border-slate-800 w-full max-w-md mx-auto">
+
+                        <!-- Floating Card 1 -->
+                        <div class="absolute -left-10 top-10 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-xl shadow-gray-200/50 dark:shadow-none border border-gray-100 dark:border-slate-700 flex items-center gap-3 animate-float"
+                            style="animation-delay: 1s;">
+                            <div
+                                class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500">Safety Score</p>
+                                <p class="font-bold text-slate-900 dark:text-white">98/100</p>
+                            </div>
+                        </div>
+
+                        <!-- Floating Card 2 -->
+                        <div class="absolute -right-5 bottom-20 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-xl shadow-gray-200/50 dark:shadow-none border border-gray-100 dark:border-slate-700 flex items-center gap-3 animate-float"
+                            style="animation-delay: 2s;">
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500">Certified Workers</p>
+                                <p class="font-bold text-slate-900 dark:text-white">5,000+</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50 dark:bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-primary-600 font-semibold tracking-wide uppercase text-sm">Key Training
+                    Programs</span>
+                <h2 class="mt-2 text-3xl md:text-4xl font-heading font-bold text-slate-900 dark:text-white">Specialized
+                    Industrial Safety Courses</h2>
+                <p class="mt-4 text-slate-600 dark:text-slate-400">Comprehensive curriculum designed to meet regulatory
+                    standards and keep your workforce safe.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
                 <div
-                    class="border border-gray-100 dark:border-slate-800 rounded-2xl hover:shadow-lg transition-shadow bg-white dark:bg-slate-800 overflow-hidden">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="assets/images/osha-construction-course.png" alt="OSHA Construction Training"
+                    class="glass-card rounded-2xl hover:-translate-y-2 transition-transform duration-300 overflow-hidden flex flex-col h-full border border-gray-100 dark:border-slate-800">
+                    <!-- Image Part -->
+                    <div class="relative h-48 overflow-hidden flex-shrink-0">
+                        <img src="assets/images/osha-training.png" alt="OSHA Training"
                             class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-8">
-                        <div class="flex justify-between items-start mb-6">
-                            <i class="fas fa-hard-hat text-4xl text-primary-600"></i>
-                            <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded-full">Most
-                                Popular</span>
+                        <div class="absolute top-4 left-4">
+                            <div
+                                class="w-12 h-12 bg-primary-100/90 dark:bg-primary-900/40 backdrop-blur-md text-primary-600 rounded-2xl flex items-center justify-center text-2xl shadow-lg border border-white/20">
+                                <i class="fas fa-hard-hat"></i>
+                            </div>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">OSHA 10-Hour Construction</h3>
-                        <p class="text-slate-600 mb-4 line-clamp-2">Entry-level safety training for construction workers
-                            covering major job site hazards.</p>
-                        <ul class="text-sm text-slate-500 mb-6 space-y-2">
-                            <li><i class="fas fa-clock w-5 text-primary-500"></i> 10 Hours</li>
-                            <li><i class="fas fa-award w-5 text-primary-500"></i> DOL Card Included</li>
-                        </ul>
+                    </div>
+                    <!-- Text Part -->
+                    <div class="p-6 bg-white dark:bg-slate-900 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">OSHA Construction</h3>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6 text-sm flex-grow">OSHA
+                            10-Hour and 30-Hour training for construction industry professionals.</p>
                         <a href="course-details.html?course=osha"
-                            class="block w-full text-center py-3 border border-primary-600 text-primary-600 rounded-xl font-semibold hover:bg-primary-600 hover:text-white transition-colors">View
-                            Details</a>
+                            class="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-primary-600 text-white rounded-xl font-bold shadow-lg shadow-primary-600/20 hover:bg-primary-700 transition-all text-sm w-full">
+                            View Curriculum <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Course 2 -->
+                <!-- Service 2 -->
                 <div
-                    class="border border-gray-100 dark:border-slate-800 rounded-2xl hover:shadow-lg transition-shadow bg-white dark:bg-slate-800 overflow-hidden ">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop"
-                            alt="Forklift Training" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-8">
-                        <div class="flex justify-between items-start mb-6">
-                            <i class="fas fa-truck-loading text-4xl text-secondary-500"></i>
+                    class="glass-card rounded-2xl hover:-translate-y-2 transition-transform duration-300 overflow-hidden flex flex-col h-full border border-gray-100 dark:border-slate-800">
+                    <!-- Image Part -->
+                    <div class="relative h-48 overflow-hidden flex-shrink-0">
+                        <img src="assets/images/fire-safety-training.png" alt="Fire Safety Training"
+                            class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <div
+                                class="w-12 h-12 bg-red-100/90 dark:bg-red-900/40 backdrop-blur-md text-red-600 rounded-2xl flex items-center justify-center text-2xl shadow-lg border border-white/20">
+                                <i class="fas fa-fire-extinguisher"></i>
+                            </div>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Forklift Certification</h3>
-                        <p class="text-slate-600 mb-4 line-clamp-2">Comprehensive forklift operator training compliant
-                            with
-                            OSHA 1910.178 standards.</p>
-                        <ul class="text-sm text-slate-500 mb-6 space-y-2">
-                            <li><i class="fas fa-clock w-5 text-primary-500"></i> 4 Hours</li>
-                            <li><i class="fas fa-award w-5 text-primary-500"></i> 3-Year Certification</li>
-                        </ul>
-                        <a href="course-details.html?course=forklift"
-                            class="block w-full text-center py-3 border border-secondary-500 text-secondary-500 rounded-xl font-semibold hover:bg-secondary-500 hover:text-white transition-colors">View
-                            Details</a>
+                    </div>
+                    <!-- Text Part -->
+                    <div class="p-6 bg-white dark:bg-slate-900 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Fire Safety</h3>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6 text-sm flex-grow">Essential
+                            fire prevention, suppression, and emergency evacuation protocols.</p>
+                        <a href="course-details.html?course=fire"
+                            class="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-red-600 text-white rounded-xl font-bold shadow-lg shadow-red-600/20 hover:bg-red-700 transition-all text-sm w-full">
+                            View Curriculum <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Course 3 -->
+                <!-- Service 3 -->
                 <div
-                    class="border border-gray-100 dark:border-slate-800 rounded-2xl hover:shadow-lg transition-shadow bg-white dark:bg-slate-800 overflow-hidden">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1603398938378-e54eab446dde?w=600&h=400&fit=crop"
-                            alt="First Aid CPR Training" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-8">
-                        <div class="flex justify-between items-start mb-6">
-                            <i class="fas fa-heartbeat text-4xl text-red-500"></i>
+                    class="glass-card rounded-2xl hover:-translate-y-2 transition-transform duration-300 overflow-hidden flex flex-col h-full border border-gray-100 dark:border-slate-800">
+                    <!-- Image Part -->
+                    <div class="relative h-48 overflow-hidden flex-shrink-0">
+                        <img src="assets/images/hazmat-training.png" alt="HazMat Training"
+                            class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <div
+                                class="w-12 h-12 bg-yellow-100/90 dark:bg-yellow-900/40 backdrop-blur-md text-yellow-600 rounded-2xl flex items-center justify-center text-2xl shadow-lg border border-white/20">
+                                <i class="fas fa-biohazard"></i>
+                            </div>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">First Aid / CPR / AED</h3>
-                        <p class="text-slate-600 mb-4 line-clamp-2">Learn life-saving skills for workplace emergencies.
-                            Includes hands-on practice.</p>
-                        <ul class="text-sm text-slate-500 mb-6 space-y-2">
-                            <li><i class="fas fa-clock w-5 text-primary-500"></i> 6 Hours</li>
-                            <li><i class="fas fa-award w-5 text-primary-500"></i> 2-Year Certification</li>
-                        </ul>
-                        <a href="course-details.html?course=firstaid"
-                            class="block w-full text-center py-3 border border-red-500 text-red-500 rounded-xl font-semibold hover:bg-red-500 hover:text-white transition-colors">View
-                            Details</a>
                     </div>
-                </div>
-
-                <!-- Course 4 -->
-                <div
-                    class="border border-gray-100 dark:border-slate-800 rounded-2xl hover:shadow-lg transition-shadow bg-white dark:bg-slate-800 overflow-hidden">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&h=400&fit=crop"
-                            alt="Lockout Tagout Training" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-8">
-                        <div class="flex justify-between items-start mb-6">
-                            <i class="fas fa-lock text-4xl text-orange-500"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Lockout / Tagout (LOTO)</h3>
-                        <p class="text-slate-600 mb-4 line-clamp-2">Control of hazardous energy during service and
-                            maintenance of machines and equipment.</p>
-                        <ul class="text-sm text-slate-500 mb-6 space-y-2">
-                            <li><i class="fas fa-clock w-5 text-primary-500"></i> 2 Hours</li>
-                            <li><i class="fas fa-award w-5 text-primary-500"></i> Annual Refresher</li>
-                        </ul>
-                        <a href="course-details.html?course=loto"
-                            class="block w-full text-center py-3 border border-orange-500 text-orange-500 rounded-xl font-semibold hover:bg-orange-500 hover:text-white transition-colors">View
-                            Details</a>
-                    </div>
-                </div>
-
-                <!-- Course 5 -->
-                <div
-                    class="border border-gray-100 dark:border-slate-800 rounded-2xl hover:shadow-lg transition-shadow bg-white dark:bg-slate-800 overflow-hidden">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&h=400&fit=crop"
-                            alt="Confined Space Training" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-8">
-                        <div class="flex justify-between items-start mb-6">
-                            <i class="fas fa-dungeon text-4xl text-purple-500"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Confined Space Entry</h3>
-                        <p class="text-slate-600 mb-4 line-clamp-2">Practices and procedures to protect employees from
-                            the
-                            hazards of entry into permit-required confined spaces.</p>
-                        <ul class="text-sm text-slate-500 mb-6 space-y-2">
-                            <li><i class="fas fa-clock w-5 text-primary-500"></i> 8 Hours</li>
-                            <li><i class="fas fa-award w-5 text-primary-500"></i> Certification</li>
-                        </ul>
-                        <a href="course-details.html?course=confined"
-                            class="block w-full text-center py-3 border border-purple-500 text-purple-500 rounded-xl font-semibold hover:bg-purple-500 hover:text-white transition-colors">View
-                            Details</a>
-                    </div>
-                </div>
-
-                <!-- Course 6 -->
-                <div
-                    class="border border-gray-100 dark:border-slate-800 rounded-2xl hover:shadow-lg transition-shadow bg-white dark:bg-slate-800 overflow-hidden">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&h=400&fit=crop"
-                            alt="Electrical Safety Training" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-8">
-                        <div class="flex justify-between items-start mb-6">
-                            <i class="fas fa-bolt text-4xl text-yellow-500"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Electrical Safety (NFPA 70E)
-                        </h3>
-                        <p class="text-slate-600 mb-4 line-clamp-2">Requirements for safe work practices to protect
-                            personnel by reducing exposure to major electrical hazards.</p>
-                        <ul class="text-sm text-slate-500 mb-6 space-y-2">
-                            <li><i class="fas fa-clock w-5 text-primary-500"></i> 4 Hours</li>
-                            <li><i class="fas fa-award w-5 text-primary-500"></i> Certification</li>
-                        </ul>
-                        <a href="course-details.html?course=electrical"
-                            class="block w-full text-center py-3 border border-yellow-500 text-yellow-500 rounded-xl font-semibold hover:bg-yellow-500 hover:text-white transition-colors">View
-                            Details</a>
+                    <!-- Text Part -->
+                    <div class="p-6 bg-white dark:bg-slate-900 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">HazMat Training</h3>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6 text-sm flex-grow">Proper
+                            handling, storage, and disposal of hazardous materials in the workplace.</p>
+                        <a href="course-details.html?course=hazmat"
+                            class="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-yellow-500 text-white rounded-xl font-bold shadow-lg shadow-yellow-500/20 hover:bg-yellow-600 transition-all text-sm w-full">
+                            View Curriculum <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Our Process Section -->
-    <section class="py-20 bg-gray-50 dark:bg-slate-900">
+    <!-- Stats Section -->
+    <section class="py-20 bg-white dark:bg-slate-950">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="text-primary-600 font-bold uppercase tracking-wide text-sm">How It Works</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mt-2">Your Path to
-                    Certification</h2>
-            </div>
-            <div class="grid md:grid-cols-4 gap-8">
-                <div class="relative text-center">
-                    <div
-                        class="w-16 h-16 bg-white dark:bg-slate-800 rounded-2xl shadow-lg flex items-center justify-center text-2xl text-primary-600 mx-auto mb-6 relative z-10">
-                        1
-                    </div>
-                    <h3 class="font-bold text-slate-900 dark:text-white mb-2">Choose Course</h3>
-                    <p class="text-sm text-slate-500">Select the training that fits your industry needs.</p>
-                    <div
-                        class="hidden md:block absolute top-8 left-1/2 w-full h-0.5 bg-gray-200 dark:bg-slate-800 -z-0">
-                    </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="p-6">
+                    <div class="text-4xl md:text-5xl font-heading font-extrabold text-primary-600 mb-2">15k+</div>
+                    <div class="text-slate-600 dark:text-slate-400 font-medium font-heading">Students Trained</div>
                 </div>
-                <div class="relative text-center">
-                    <div
-                        class="w-16 h-16 bg-white dark:bg-slate-800 rounded-2xl shadow-lg flex items-center justify-center text-2xl text-primary-600 mx-auto mb-6 relative z-10">
-                        2
-                    </div>
-                    <h3 class="font-bold text-slate-900 dark:text-white mb-2">Flexible Study</h3>
-                    <p class="text-sm text-slate-500">Learn at your own pace with our online modules.</p>
-                    <div
-                        class="hidden md:block absolute top-8 left-1/2 w-full h-0.5 bg-gray-200 dark:bg-slate-800 -z-0">
-                    </div>
+                <div class="p-6">
+                    <div class="text-4xl md:text-5xl font-heading font-extrabold text-primary-600 mb-2">500+</div>
+                    <div class="text-slate-600 dark:text-slate-400 font-medium font-heading">Corporate Clients</div>
                 </div>
-                <div class="relative text-center">
-                    <div
-                        class="w-16 h-16 bg-white dark:bg-slate-800 rounded-2xl shadow-lg flex items-center justify-center text-2xl text-primary-600 mx-auto mb-6 relative z-10">
-                        3
-                    </div>
-                    <h3 class="font-bold text-slate-900 dark:text-white mb-2">Assessment</h3>
-                    <p class="text-sm text-slate-500">Complete practical evaluations with experts.</p>
-                    <div
-                        class="hidden md:block absolute top-8 left-1/2 w-full h-0.5 bg-gray-200 dark:bg-slate-800 -z-0">
-                    </div>
+                <div class="p-6">
+                    <div class="text-4xl md:text-5xl font-heading font-extrabold text-primary-600 mb-2">99%</div>
+                    <div class="text-slate-600 dark:text-slate-400 font-medium font-heading">Passing Rate</div>
                 </div>
-                <div class="relative text-center">
-                    <div
-                        class="w-16 h-16 bg-primary-600 rounded-2xl shadow-lg flex items-center justify-center text-2xl text-white mx-auto mb-6 relative z-10">
-                        <i class="fas fa-check"></i>
-                    </div>
-                    <h3 class="font-bold text-slate-900 dark:text-white mb-2">Get Certified</h3>
-                    <p class="text-sm text-slate-500">Receive your accredited credentials immediately.</p>
+                <div class="p-6">
+                    <div class="text-4xl md:text-5xl font-heading font-extrabold text-primary-600 mb-2">12+</div>
+                    <div class="text-slate-600 dark:text-slate-400 font-medium font-heading">Years Experience</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Industry Expertise Section -->
-    <section class="py-20">
+    <!-- Client Logos Section -->
+    <section class="py-16 bg-gray-50 dark:bg-slate-900 overflow-hidden border-y border-gray-100 dark:border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-                <div>
-                    <span class="text-primary-600 font-bold uppercase tracking-wide text-sm">Our Reach</span>
-                    <h2 class="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mt-2 mb-6 leading-tight">
-                        Safety Solutions for Every Sector</h2>
-                    <p class="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed text-lg">We provide specialized
-                        training tailored to the unique hazards and regulatory requirements of diverse industrial
-                        sectors.</p>
-                    <div class="grid sm:grid-cols-2 gap-6">
-                        <div
-                            class="flex items-center gap-4 p-4 bg-gray-50 dark:bg-slate-900 rounded-2xl border border-gray-100 dark:border-slate-800">
-                            <div
-                                class="w-12 h-12 bg-white dark:bg-slate-800 rounded-xl flex items-center justify-center text-primary-600 shadow-sm">
-                                <i class="fas fa-building"></i>
-                            </div>
-                            <span class="font-bold text-slate-700 dark:text-slate-300">Construction</span>
-                        </div>
-                        <div
-                            class="flex items-center gap-4 p-4 bg-gray-50 dark:bg-slate-900 rounded-2xl border border-gray-100 dark:border-slate-800">
-                            <div
-                                class="w-12 h-12 bg-white dark:bg-slate-800 rounded-xl flex items-center justify-center text-primary-600 shadow-sm">
-                                <i class="fas fa-industry"></i>
-                            </div>
-                            <span class="font-bold text-slate-700 dark:text-slate-300">Manufacturing</span>
-                        </div>
-                        <div
-                            class="flex items-center gap-4 p-4 bg-gray-50 dark:bg-slate-900 rounded-2xl border border-gray-100 dark:border-slate-800">
-                            <div
-                                class="w-12 h-12 bg-white dark:bg-slate-800 rounded-xl flex items-center justify-center text-primary-600 shadow-sm">
-                                <i class="fas fa-bolt"></i>
-                            </div>
-                            <span class="font-bold text-slate-700 dark:text-slate-300">Energy & Power</span>
-                        </div>
-                        <div
-                            class="flex items-center gap-4 p-4 bg-gray-50 dark:bg-slate-900 rounded-2xl border border-gray-100 dark:border-slate-800">
-                            <div
-                                class="w-12 h-12 bg-white dark:bg-slate-800 rounded-xl flex items-center justify-center text-primary-600 shadow-sm">
-                                <i class="fas fa-flask"></i>
-                            </div>
-                            <span class="font-bold text-slate-700 dark:text-slate-300">Chemical</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?w=800&q=80"
-                        class="rounded-3xl shadow-2xl relative z-10">
-                    <div
-                        class="absolute -top-6 -right-6 w-32 h-32 bg-primary-100 dark:bg-primary-900/20 rounded-full blur-2xl">
-                    </div>
-                    <div
-                        class="absolute -bottom-6 -left-6 w-32 h-32 bg-secondary-100 dark:bg-secondary-900/20 rounded-full blur-2xl">
-                    </div>
+            <p class="text-center text-sm font-semibold text-slate-400 uppercase tracking-widest mb-10">Trusted by
+                Industry Leaders</p>
+            <div
+                class="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-40 dark:opacity-30 grayscale hover:grayscale-0 transition-all duration-500">
+                <i class="fab fa-aws text-4xl"></i>
+                <i class="fab fa-google text-4xl"></i>
+                <i class="fab fa-microsoft text-4xl"></i>
+                <i class="fab fa-apple text-4xl"></i>
+                <i class="fab fa-amazon text-4xl"></i>
+                <i class="fab fa-facebook text-4xl"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Newsletter Section -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-primary-600 rounded-3xl p-8 md:p-16 text-center text-white shadow-2xl shadow-primary-600/20">
+                <h2 class="text-3xl md:text-5xl font-heading font-extrabold mb-6">Ready to improve your safety
+                    standards?</h2>
+                <p class="text-primary-100 text-lg mb-10 max-w-2xl mx-auto">Join hundreds of companies that trust
+                    TrainComply for their industrial safety and compliance needs.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact.html"
+                        class="px-8 py-4 bg-white text-primary-600 rounded-xl font-bold hover:bg-primary-50 transition-all shadow-lg">Get
+                        Started Now</a>
+                    <a href="services.html"
+                        class="px-8 py-4 bg-primary-700 text-white rounded-xl font-bold hover:bg-primary-800 transition-all border border-primary-500">View
+                        All Courses</a>
                 </div>
             </div>
+        </div>
+        <!-- Abstract Background Elements -->
+        <div
+            class="absolute top-0 left-0 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2">
+        </div>
+        <div
+            class="absolute bottom-0 right-0 w-64 h-64 bg-secondary-500/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2">
         </div>
     </section>
 
@@ -553,10 +565,14 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="assets/js/main.js"></script>
 </body>
 
 </html>
+
+
+
 
 
 

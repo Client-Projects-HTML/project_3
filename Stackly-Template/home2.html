@@ -4,13 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TrainComply Solutions | Contact Us</title>
+    <meta name="description"
+        content="Home Page 2 - Niche-specific layout for SaaS and digital agency use cases">
+    <title>TrainComply Solutions | Home Page 2 - Niche Specific</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
         rel="stylesheet">
+
+    <!-- Tailwind CSS (CDN for Dev/Preview) -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+    <!-- Configuration -->
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -21,20 +33,47 @@
                         heading: ['"Outfit"', 'sans-serif'],
                     },
                     colors: {
-                        primary: { 50: '#eef2ff', 500: '#f59e0b', 600: '#d97706', 700: '#b45309' },
+                        primary: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#f59e0b', // Safety Orange/Yellow tone
+                            600: '#d97706',
+                            700: '#b45309',
+                            900: '#78350f',
+                        },
+                        secondary: {
+                            500: '#3b82f6', // Trust Blue
+                            600: '#2563eb',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
                     }
                 }
             }
         }
     </script>
+
     <style type="text/tailwindcss">
         @layer utilities {
-            .glass-nav { @apply bg-white dark:bg-slate-900 border-b border-gray-100 dark:border-slate-800; }
+            .glass-nav {
+                @apply bg-white dark:bg-slate-900 border-b border-gray-100 dark:border-slate-800;
+            }
+            .glass-card {
+                @apply bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 shadow-xl shadow-gray-200/50 dark:shadow-none;
+            }
         }
     </style>
 </head>
 
-<body class="bg-white dark:bg-slate-950 text-slate-600 dark:text-slate-300 font-sans antialiased">
+<body
+    class="bg-white dark:bg-slate-950 text-slate-600 dark:text-slate-300 font-sans antialiased selection:bg-primary-500 selection:text-white">
 
     <!-- Navbar -->
     <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
@@ -210,141 +249,85 @@
         </div>
     </div>
 
-    <!-- Content -->
-    <section class="pt-32 pb-20">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid lg:grid-cols-2 gap-16">
-                <!-- Form -->
-                <div>
-                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">Send us a Message</h2>
-                    <form class="space-y-6">
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">First
-                                    Name</label>
-                                <input type="text"
-                                    class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-slate-800 border-transparent focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-primary-500 transition-all outline-none"
-                                    placeholder="John">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Last
-                                    Name</label>
-                                <input type="text"
-                                    class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-slate-800 border-transparent focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-primary-500 transition-all outline-none"
-                                    placeholder="Doe">
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Email
-                                Address</label>
-                            <input type="email"
-                                class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-slate-800 border-transparent focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-primary-500 transition-all outline-none"
-                                placeholder="john@company.com">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Service
-                                Interest</label>
-                            <select
-                                class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-slate-800 border-transparent focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-primary-500 transition-all outline-none">
-                                <option>General Inquiry</option>
-                                <option>Group Training Quote</option>
-                                <option>OSHA Certification</option>
-                                <option>Consulting Services</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label
-                                class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Message</label>
-                            <textarea rows="4"
-                                class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-slate-800 border-transparent focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-primary-500 transition-all outline-none"
-                                placeholder="How can we help?"></textarea>
-                        </div>
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Background Blobs -->
+        <div
+            class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl opacity-50 dark:opacity-30 animate-pulse">
+        </div>
+        <div
+            class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-secondary-500/10 rounded-full blur-3xl opacity-50 dark:opacity-30">
+        </div>
 
-                        <!-- File Upload -->
-                        <div>
-                            <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Upload
-                                Employee Roster (Optional)</label>
-                            <div
-                                class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 dark:border-slate-700 border-dashed rounded-lg hover:border-primary-500 transition-colors cursor-pointer bg-gray-50 dark:bg-slate-800/50">
-                                <div class="space-y-1 text-center">
-                                    <i class="fas fa-cloud-upload-alt text-3xl text-slate-400"></i>
-                                    <div class="flex text-sm text-slate-600 dark:text-slate-400 justify-center">
-                                        <label for="file-upload"
-                                            class="relative cursor-pointer bg-transparent rounded-md font-medium text-primary-600 hover:text-primary-500">
-                                            <span>Upload a file</span>
-                                            <input id="file-upload" name="file-upload" type="file" class="sr-only">
-                                        </label>
-                                        <p class="pl-1">or drag and drop</p>
-                                    </div>
-                                    <p class="text-xs text-slate-500">CSV, PDF, or XLS up to 10MB</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button
-                            class="w-full py-4 bg-primary-600 hover:bg-primary-700 text-white font-bold rounded-xl shadow-lg shadow-primary-600/30 transition-all">Send
-                            Message</button>
-                    </form>
-                </div>
-
-                <!-- Info & Map -->
-                <div class="space-y-8">
-                    <!-- Booking Info -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                <!-- Content -->
+                <div class="text-center lg:text-left">
                     <div
-                        class="bg-primary-50 dark:bg-slate-800 p-8 rounded-2xl border border-primary-100 dark:border-slate-700">
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Book a Consultation</h3>
-                        <p class="text-slate-600 dark:text-slate-400 mb-6">Need a safety audit or an on-site training
-                            session? Schedule a call with our experts.</p>
-                        <a href="#"
-                            class="inline-flex items-center gap-2 text-primary-600 font-bold hover:gap-3 transition-all">
-                            View Available Times <i class="fas fa-arrow-right"></i>
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-50 dark:bg-slate-800 border border-primary-100 dark:border-slate-700 text-primary-600 dark:text-primary-400 text-sm font-medium mb-6">
+                        <span class="flex h-2 w-2 relative">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+                        </span>
+                        Niche-Specific Experience
+                    </div>
+                    <h1
+                        class="font-heading text-4xl lg:text-6xl font-extrabold text-slate-900 dark:text-white leading-tight mb-6">
+                        Home Page 2 <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-primary-500">SaaS / Digital Agency Focus</span>
+                    </h1>
+                    <p
+                        class="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        A niche-focused homepage for SaaS and digital agency offerings, highlighting product value, growth outcomes, and focused client journeys.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="services.html"
+                            class="px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white rounded-xl font-semibold shadow-xl shadow-primary-600/30 transition-all hover:-translate-y-1">
+                            View Solutions
+                        </a>
+                        <a href="contact.html"
+                            class="px-8 py-4 bg-white dark:bg-slate-800 text-slate-700 dark:text-white border border-gray-200 dark:border-slate-700 rounded-xl font-semibold hover:bg-gray-50 dark:hover:bg-slate-700 transition-all">
+                            Book a Demo
                         </a>
                     </div>
 
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-4">
-                            <div
-                                class="w-12 h-12 bg-gray-100 dark:bg-slate-800 rounded-lg flex items-center justify-center text-primary-600 text-xl">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-slate-900 dark:text-white">Our Headquarters</h4>
-                                <p class="text-slate-600 dark:text-slate-400 mt-1">123 Safety First Blvd, Suite
-                                    400<br>Industrial District, TX 75001</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div
-                                class="w-12 h-12 bg-gray-100 dark:bg-slate-800 rounded-lg flex items-center justify-center text-primary-600 text-xl">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-slate-900 dark:text-white">Phone Support</h4>
-                                <p class="text-slate-600 dark:text-slate-400 mt-1">+1 (800) 555-0123<br>Mon-Fri, 9am -
-                                    6pm EST</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div
-                                class="w-12 h-12 bg-gray-100 dark:bg-slate-800 rounded-lg flex items-center justify-center text-primary-600 text-xl">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-slate-900 dark:text-white">Email Us</h4>
-                                <p class="text-slate-600 dark:text-slate-400 mt-1">
-                                    support@traincomply.com<br>sales@traincomply.com</p>
-                            </div>
-                        </div>
+                    <div
+                        class="mt-10 flex items-center justify-center lg:justify-start gap-4 text-sm font-semibold text-slate-500 dark:text-slate-400">
+                        <i class="fas fa-check text-green-500"></i> Product-Led Growth
+                        <i class="fas fa-check text-green-500 ml-4"></i> Agency Delivery Experts
                     </div>
+                </div>
 
-                    <!-- Map Placeholder -->
-                    <div class="w-full h-64 bg-slate-200 dark:bg-slate-800 rounded-2xl overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                            class="w-full h-full object-cover opacity-60">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <button
-                                class="bg-white text-slate-900 px-6 py-3 rounded-lg font-bold shadow-lg hover:scale-105 transition-transform">View
-                                on Google Maps</button>
+                <!-- Image -->
+                <div class="relative lg:h-[600px] flex items-center justify-center">
+                    <div class="relative z-10 animate-float text-center">
+                        <img src="assets/images/blog-micro-learning.png" alt="SaaS and Digital Agency Dashboard"
+                            class="rounded-2xl shadow-2xl border-4 border-white dark:border-slate-800 w-full max-w-md mx-auto">
+
+                        <!-- Floating Card 1 -->
+                        <div class="absolute -left-10 top-10 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-xl shadow-gray-200/50 dark:shadow-none border border-gray-100 dark:border-slate-700 flex items-center gap-3 animate-float"
+                            style="animation-delay: 1s;">
+                            <div
+                                class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500">MRR Growth</p>
+                                <p class="font-bold text-slate-900 dark:text-white">+42%</p>
+                            </div>
+                        </div>
+
+                        <!-- Floating Card 2 -->
+                        <div class="absolute -right-5 bottom-20 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-xl shadow-gray-200/50 dark:shadow-none border border-gray-100 dark:border-slate-700 flex items-center gap-3 animate-float"
+                            style="animation-delay: 2s;">
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500">Qualified Leads</p>
+                                <p class="font-bold text-slate-900 dark:text-white">3,200+</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -352,53 +335,165 @@
         </div>
     </section>
 
-    <!-- Office Locations -->
-    <section class="py-20 bg-gray-50 dark:bg-slate-900 border-t border-gray-100 dark:border-slate-800">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <span class="text-primary-600 font-bold uppercase tracking-wide text-sm">Our Presence</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mt-2">Regional Training Centers
-                </h2>
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50 dark:bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-primary-600 font-semibold tracking-wide uppercase text-sm">Core Growth
+                    Services</span>
+                <h2 class="mt-2 text-3xl md:text-4xl font-heading font-bold text-slate-900 dark:text-white">Built for
+                    SaaS and Digital Agency Teams</h2>
+                <p class="mt-4 text-slate-600 dark:text-slate-400">Execution-focused services designed to improve
+                    conversion rates, retention, and revenue velocity.</p>
             </div>
+
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Location 1 -->
+                <!-- Service 1 -->
                 <div
-                    class="bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-slate-700">
-                    <div
-                        class="w-12 h-12 bg-primary-50 dark:bg-primary-900/20 rounded-xl flex items-center justify-center text-primary-600 mb-6 font-bold">
-                        TX</div>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Texas Regional Office</h3>
-                    <p class="text-sm text-slate-500 mb-6">123 Safety First Blvd, Suite 400<br>Industrial District, TX
-                        75001</p>
-                    <div class="flex items-center gap-2 text-primary-600 text-sm font-bold">
-                        <i class="fas fa-phone-alt"></i> +1 (800) 555-0123
+                    class="glass-card rounded-2xl hover:-translate-y-2 transition-transform duration-300 overflow-hidden flex flex-col h-full border border-gray-100 dark:border-slate-800">
+                    <!-- Image Part -->
+                    <div class="relative h-48 overflow-hidden flex-shrink-0">
+                        <img src="assets/images/blog-osha-violations.png" alt="SaaS Funnel Optimization"
+                            class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <div
+                                class="w-12 h-12 bg-primary-100/90 dark:bg-primary-900/40 backdrop-blur-md text-primary-600 rounded-2xl flex items-center justify-center text-2xl shadow-lg border border-white/20">
+                                <i class="fas fa-funnel-dollar"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Text Part -->
+                    <div class="p-6 bg-white dark:bg-slate-900 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Funnel Optimization</h3>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6 text-sm flex-grow">Audit and
+                            optimize acquisition funnels from ad click to paid conversion.</p>
+                        <a href="course-details.html?course=osha"
+                            class="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-primary-600 text-white rounded-xl font-bold shadow-lg shadow-primary-600/20 hover:bg-primary-700 transition-all text-sm w-full">
+                            View Strategy <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
                     </div>
                 </div>
-                <!-- Location 2 -->
+
+                <!-- Service 2 -->
                 <div
-                    class="bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-slate-700">
-                    <div
-                        class="w-12 h-12 bg-primary-50 dark:bg-primary-900/20 rounded-xl flex items-center justify-center text-primary-600 mb-6 font-bold">
-                        CA</div>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">California Training Hub</h3>
-                    <p class="text-sm text-slate-500 mb-6">456 Compliance Ave, Floor 12<br>Long Beach, CA 90802</p>
-                    <div class="flex items-center gap-2 text-primary-600 text-sm font-bold">
-                        <i class="fas fa-phone-alt"></i> +1 (800) 555-0456
+                    class="glass-card rounded-2xl hover:-translate-y-2 transition-transform duration-300 overflow-hidden flex flex-col h-full border border-gray-100 dark:border-slate-800">
+                    <!-- Image Part -->
+                    <div class="relative h-48 overflow-hidden flex-shrink-0">
+                        <img src="assets/images/blog-ppe-electrical.png" alt="SaaS Onboarding and Activation"
+                            class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <div
+                                class="w-12 h-12 bg-red-100/90 dark:bg-red-900/40 backdrop-blur-md text-red-600 rounded-2xl flex items-center justify-center text-2xl shadow-lg border border-white/20">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Text Part -->
+                    <div class="p-6 bg-white dark:bg-slate-900 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Onboarding and Activation</h3>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6 text-sm flex-grow">Reduce
+                            time-to-value with guided onboarding, lifecycle messaging, and product education.</p>
+                        <a href="course-details.html?course=fire"
+                            class="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-red-600 text-white rounded-xl font-bold shadow-lg shadow-red-600/20 hover:bg-red-700 transition-all text-sm w-full">
+                            See Framework <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
                     </div>
                 </div>
-                <!-- Location 3 -->
+
+                <!-- Service 3 -->
                 <div
-                    class="bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-slate-700">
-                    <div
-                        class="w-12 h-12 bg-primary-50 dark:bg-primary-900/20 rounded-xl flex items-center justify-center text-primary-600 mb-6 font-bold">
-                        IL</div>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Midwest Logistics Center</h3>
-                    <p class="text-sm text-slate-500 mb-6">789 Industrial Pkwy, Suite 100<br>Chicago, IL 60601</p>
-                    <div class="flex items-center gap-2 text-primary-600 text-sm font-bold">
-                        <i class="fas fa-phone-alt"></i> +1 (800) 555-0789
+                    class="glass-card rounded-2xl hover:-translate-y-2 transition-transform duration-300 overflow-hidden flex flex-col h-full border border-gray-100 dark:border-slate-800">
+                    <!-- Image Part -->
+                    <div class="relative h-48 overflow-hidden flex-shrink-0">
+                        <img src="assets/images/blog-micro-learning.png" alt="Retention and Revenue Operations"
+                            class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4">
+                            <div
+                                class="w-12 h-12 bg-yellow-100/90 dark:bg-yellow-900/40 backdrop-blur-md text-yellow-600 rounded-2xl flex items-center justify-center text-2xl shadow-lg border border-white/20">
+                                <i class="fas fa-repeat"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Text Part -->
+                    <div class="p-6 bg-white dark:bg-slate-900 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Retention and Revenue Ops</h3>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6 text-sm flex-grow">Improve
+                            renewals, expansion revenue, and account health with data-backed playbooks.</p>
+                        <a href="course-details.html?course=hazmat"
+                            class="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-yellow-500 text-white rounded-xl font-bold shadow-lg shadow-yellow-500/20 hover:bg-yellow-600 transition-all text-sm w-full">
+                            Explore Plans <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-white dark:bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="p-6">
+                    <div class="text-4xl md:text-5xl font-heading font-extrabold text-primary-600 mb-2">220+</div>
+                    <div class="text-slate-600 dark:text-slate-400 font-medium font-heading">Growth Projects</div>
+                </div>
+                <div class="p-6">
+                    <div class="text-4xl md:text-5xl font-heading font-extrabold text-primary-600 mb-2">85+</div>
+                    <div class="text-slate-600 dark:text-slate-400 font-medium font-heading">SaaS Partners</div>
+                </div>
+                <div class="p-6">
+                    <div class="text-4xl md:text-5xl font-heading font-extrabold text-primary-600 mb-2">34%</div>
+                    <div class="text-slate-600 dark:text-slate-400 font-medium font-heading">Avg. Conversion Lift</div>
+                </div>
+                <div class="p-6">
+                    <div class="text-4xl md:text-5xl font-heading font-extrabold text-primary-600 mb-2">$12M+</div>
+                    <div class="text-slate-600 dark:text-slate-400 font-medium font-heading">Pipeline Influenced</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Logos Section -->
+    <section class="py-16 bg-gray-50 dark:bg-slate-900 overflow-hidden border-y border-gray-100 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-sm font-semibold text-slate-400 uppercase tracking-widest mb-10">Trusted by
+                SaaS and Agency Teams</p>
+            <div
+                class="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-40 dark:opacity-30 grayscale hover:grayscale-0 transition-all duration-500">
+                <i class="fab fa-aws text-4xl"></i>
+                <i class="fab fa-google text-4xl"></i>
+                <i class="fab fa-microsoft text-4xl"></i>
+                <i class="fab fa-apple text-4xl"></i>
+                <i class="fab fa-amazon text-4xl"></i>
+                <i class="fab fa-facebook text-4xl"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Newsletter Section -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-primary-600 rounded-3xl p-8 md:p-16 text-center text-white shadow-2xl shadow-primary-600/20">
+                <h2 class="text-3xl md:text-5xl font-heading font-extrabold mb-6">Ready to scale growth with a focused
+                    team?</h2>
+                <p class="text-primary-100 text-lg mb-10 max-w-2xl mx-auto">Partner with specialists who build
+                    repeatable acquisition, activation, and retention systems.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact.html"
+                        class="px-8 py-4 bg-white text-primary-600 rounded-xl font-bold hover:bg-primary-50 transition-all shadow-lg">Book
+                        Growth Call</a>
+                    <a href="services.html"
+                        class="px-8 py-4 bg-primary-700 text-white rounded-xl font-bold hover:bg-primary-800 transition-all border border-primary-500">View
+                        Service Packages</a>
+                </div>
+            </div>
+        </div>
+        <!-- Abstract Background Elements -->
+        <div
+            class="absolute top-0 left-0 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2">
+        </div>
+        <div
+            class="absolute bottom-0 right-0 w-64 h-64 bg-secondary-500/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2">
         </div>
     </section>
 
@@ -415,7 +510,7 @@
                                 class="text-primary-600">Solutions</span></span>
                     </div>
                     <p class="text-slate-400 text-sm leading-relaxed">
-                        Your partner in industrial safety compliance and workforce protection.
+                        Your partner for SaaS growth, agency execution, and measurable revenue outcomes.
                     </p>
                 </div>
 
@@ -433,19 +528,22 @@
                 </div>
 
                 <div>
-                    <h4 class="text-white font-bold mb-6">Popular Courses</h4>
+                    <h4 class="text-white font-bold mb-6">Popular Solutions</h4>
                     <ul class="space-y-3 text-sm">
-                        <li><a href="#" class="hover:text-white transition-colors">OSHA 10-Hour</a></li>
-                        <li><a href="coming-soon.html" class="hover:text-white transition-colors">Forklift
-                                Certification</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">First Aid / CPR</a></li>
-                        <li><a href="404.html" class="hover:text-white transition-colors">Electrical Safety</a></li>
+                        <li><a href="services.html" class="hover:text-white transition-colors">Demand Generation</a>
+                        </li>
+                        <li><a href="services.html" class="hover:text-white transition-colors">Product Marketing</a>
+                        </li>
+                        <li><a href="services.html" class="hover:text-white transition-colors">Lifecycle Automation</a>
+                        </li>
+                        <li><a href="services.html" class="hover:text-white transition-colors">Revenue Operations</a>
+                        </li>
                     </ul>
                 </div>
 
                 <div class="col-span-2 md:col-span-1">
                     <h4 class="text-white font-bold mb-6">Newsletter</h4>
-                    <p class="text-xs text-slate-400 mb-4">Subscribe for safety tips and regulatory updates.</p>
+                    <p class="text-xs text-slate-400 mb-4">Subscribe for SaaS growth insights and playbooks.</p>
                     <form class="flex gap-2">
                         <input type="email" placeholder="Email address"
                             class="bg-slate-800 border-none rounded-lg px-4 py-2 text-sm w-full focus:ring-1 focus:ring-primary-500 text-white">
@@ -466,10 +564,14 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="assets/js/main.js"></script>
 </body>
 
 </html>
+
+
+
 
 
 

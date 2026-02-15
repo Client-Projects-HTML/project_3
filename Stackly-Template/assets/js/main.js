@@ -4,6 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.getElementById('navbar');
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
+    const mobileHomeToggle = document.getElementById('mobileHomeToggle');
+    const mobileHomeDropdown = document.getElementById('mobileHomeDropdown');
+    const mobileLoginToggle = document.getElementById('mobileLoginToggle');
+    const mobileLoginDropdown = document.getElementById('mobileLoginDropdown');
+    const desktopLoginMenu = document.getElementById('desktopLoginMenu');
+    const desktopLoginLink = document.getElementById('desktopLoginLink');
+    const desktopLoginToggle = document.getElementById('desktopLoginToggle');
+    const desktopLoginDropdown = document.getElementById('desktopLoginDropdown');
     const themeToggleBtn = document.getElementById('themeToggle');
     const themeToggleMobile = document.querySelector('.theme-toggle-mobile');
     const rtlToggleBtn = document.getElementById('rtlToggle');
@@ -33,6 +41,106 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = '';
         }
     });
+
+    // --- Mobile Home Dropdown ---
+    if (mobileHomeToggle && mobileHomeDropdown) {
+        const mobileHomeChevron = mobileHomeToggle.querySelector('i');
+
+        function setMobileHomeDropdown(open) {
+            mobileHomeToggle.setAttribute('aria-expanded', String(open));
+            mobileHomeDropdown.classList.toggle('hidden', !open);
+            if (mobileHomeChevron) {
+                mobileHomeChevron.classList.toggle('rotate-180', open);
+            }
+        }
+
+        mobileHomeToggle.addEventListener('click', () => {
+            const isOpen = mobileHomeToggle.getAttribute('aria-expanded') === 'true';
+            setMobileHomeDropdown(!isOpen);
+        });
+
+        mobileMenuBtn.addEventListener('click', () => {
+            if (mobileMenu.classList.contains('translate-x-full')) {
+                setMobileHomeDropdown(false);
+            }
+        });
+    }
+
+    // --- Mobile Login Dropdown ---
+    if (mobileLoginToggle && mobileLoginDropdown) {
+        const mobileLoginChevron = mobileLoginToggle.querySelector('i');
+
+        function setMobileLoginDropdown(open) {
+            mobileLoginToggle.setAttribute('aria-expanded', String(open));
+            mobileLoginDropdown.classList.toggle('hidden', !open);
+            if (mobileLoginChevron) {
+                mobileLoginChevron.classList.toggle('rotate-180', open);
+            }
+        }
+
+        mobileLoginToggle.addEventListener('click', () => {
+            const isOpen = mobileLoginToggle.getAttribute('aria-expanded') === 'true';
+            setMobileLoginDropdown(!isOpen);
+        });
+
+        mobileLoginDropdown.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => setMobileLoginDropdown(false));
+        });
+
+        mobileMenuBtn.addEventListener('click', () => {
+            if (mobileMenu.classList.contains('translate-x-full')) {
+                setMobileLoginDropdown(false);
+            }
+        });
+    }
+
+    // --- Desktop Login Dropdown (Click-to-open) ---
+    if (desktopLoginMenu && desktopLoginLink && desktopLoginToggle && desktopLoginDropdown) {
+        let isDesktopLoginOpen = false;
+
+        function setDesktopLoginDropdown(open) {
+            isDesktopLoginOpen = open;
+            desktopLoginToggle.setAttribute('aria-expanded', String(open));
+            desktopLoginDropdown.classList.toggle('opacity-100', open);
+            desktopLoginDropdown.classList.toggle('visible', open);
+            desktopLoginDropdown.classList.toggle('translate-y-0', open);
+            desktopLoginDropdown.classList.toggle('pointer-events-auto', open);
+            desktopLoginDropdown.classList.toggle('opacity-0', !open);
+            desktopLoginDropdown.classList.toggle('invisible', !open);
+            desktopLoginDropdown.classList.toggle('translate-y-2', !open);
+            desktopLoginDropdown.classList.toggle('pointer-events-none', !open);
+        }
+
+        desktopLoginToggle.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            setDesktopLoginDropdown(!isDesktopLoginOpen);
+        });
+
+        desktopLoginLink.addEventListener('click', (event) => {
+            // First click opens dropdown for role selection. Second click navigates to login page.
+            if (!isDesktopLoginOpen) {
+                event.preventDefault();
+                setDesktopLoginDropdown(true);
+            }
+        });
+
+        desktopLoginDropdown.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => setDesktopLoginDropdown(false));
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!desktopLoginMenu.contains(event.target)) {
+                setDesktopLoginDropdown(false);
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                setDesktopLoginDropdown(false);
+            }
+        });
+    }
 
     // --- Dark/Light Mode Logic ---
     function setTheme(theme) {
