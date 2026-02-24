@@ -4,7 +4,7 @@ const blogData = {
         category: "Compliance",
         date: "Oct 24, 2025",
         readTime: "6 min read",
-        image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=1200&auto=format&fit=crop",
+        image: "assets/images/blog-osha-violations.png",
         content: `
             <p>As we move into 2025, OSHA has released its preliminary data for the most frequent workplace safety violations. Understanding these common pitfalls is the first step toward maintaining a compliant and safe work environment for your team.</p>
             
@@ -29,7 +29,7 @@ const blogData = {
         category: "Training",
         date: "Oct 15, 2025",
         readTime: "4 min read",
-        image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1200&auto=format&fit=crop",
+        image: "assets/images/blog-micro-learning.png",
         content: `
             <p>Traditional 8-hour safety seminars are becoming a thing of the past. Modern industrial workforces require more flexible, engaging, and memory-retentive training methods. Enter micro-learning.</p>
             
@@ -48,7 +48,7 @@ const blogData = {
         category: "Equipment",
         date: "Sep 28, 2025",
         readTime: "5 min read",
-        image: "https://images.unsplash.com/photo-1581092162384-8987c1d64718?q=80&w=1200&auto=format&fit=crop",
+        image: "assets/images/blog-ppe-electrical.png",
         content: `
             <p>Electrical hazards are among the most dangerous in the industrial sector. Having the right Personal Protective Equipment (PPE) isn't just a recommendation—it's a life-saving necessity.</p>
             
@@ -66,7 +66,7 @@ const blogData = {
         category: "Culture",
         date: "Sep 12, 2025",
         readTime: "7 min read",
-        image: "https://images.unsplash.com/photo-1513128034602-7814ccaddd4e?q=80&w=1200&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop",
         content: `
             <p>Safety is not a department; it's a mindset. A true safety-first culture starts at the top and permeates every level of the organization.</p>
             
@@ -96,7 +96,7 @@ const blogData = {
         category: "Mental Health",
         date: "Aug 15, 2025",
         readTime: "6 min read",
-        image: "https://images.unsplash.com/photo-1454165833222-3853b4968f21?q=80&w=1200&auto=format&fit=crop",
+        image: "assets/images/hero-safety-worker.png",
         content: `
             <p>Exhaustion is a silent killer in the industrial workplace. A fatigued employee has the same reaction time and judgment impairments as someone who is legally intoxicated.</p>
             

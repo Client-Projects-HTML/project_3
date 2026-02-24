@@ -196,6 +196,30 @@ document.addEventListener('DOMContentLoaded', () => {
         if (rtlToggleMobile) rtlToggleMobile.textContent = 'LTR';
     }
 
+
+    // --- RTL Toggle Logic ---
+
+    function toggleRTL() {
+        const currentDir = html.getAttribute('dir');
+        const newDir = currentDir === 'ltr' ? 'rtl' : 'ltr';
+        html.setAttribute('dir', newDir);
+
+        if (rtlToggleBtn) rtlToggleBtn.textContent = newDir === 'ltr' ? 'RTL' : 'LTR';
+
+        const rtlToggleMobile = document.querySelector('.rtl-toggle-mobile');
+        if (rtlToggleMobile) rtlToggleMobile.textContent = newDir === 'ltr' ? 'RTL' : 'LTR';
+
+        localStorage.setItem('dir', newDir);
+    }
+
+    // Initialize RTL from local storage
+    if (localStorage.getItem('dir') === 'rtl') {
+        html.setAttribute('dir', 'rtl');
+        if (rtlToggleBtn) rtlToggleBtn.textContent = 'LTR';
+        const rtlToggleMobile = document.querySelector('.rtl-toggle-mobile');
+        if (rtlToggleMobile) rtlToggleMobile.textContent = 'LTR';
+    }
+
     if (rtlToggleBtn) {
         rtlToggleBtn.addEventListener('click', toggleRTL);
     }
@@ -205,5 +229,71 @@ document.addEventListener('DOMContentLoaded', () => {
     if (rtlToggleMobile) {
         rtlToggleMobile.addEventListener('click', toggleRTL);
     }
+
+    // --- Active Link Highlighting ---
+    function highlightActiveLink() {
+        const currentPath = window.location.pathname;
+        const currentPage = currentPath.split('/').pop() || 'index.html';
+
+        const navLinks = document.querySelectorAll('#navbar a, #mobileMenu a');
+        const navButtons = document.querySelectorAll('#navbar button, #mobileMenu button');
+
+        // Reset all links
+        navLinks.forEach(link => {
+            link.classList.remove('text-primary-600', 'dark:text-primary-400', 'font-semibold');
+            if (!link.closest('#mobileMenu')) {
+                link.classList.add('text-slate-600', 'dark:text-slate-300', 'font-medium');
+            }
+        });
+
+        // Reset all buttons (dropdown triggers)
+        navButtons.forEach(btn => {
+            if (btn.id === 'themeToggle' || btn.id === 'rtlToggle' || btn.id === 'mobileMenuBtn' || btn.id === 'desktopLoginToggle') return;
+            btn.classList.remove('text-primary-600', 'dark:text-primary-400', 'font-semibold');
+            if (!btn.closest('#mobileMenu')) {
+                btn.classList.add('text-slate-600', 'dark:text-slate-300', 'font-medium');
+            }
+        });
+
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (!href) return;
+
+            // Normalize href for comparison
+            const linkPage = href.split('/').pop();
+
+            if (currentPage === linkPage) {
+                // Apply active classes
+                link.classList.add('text-primary-600', 'dark:text-primary-400', 'font-semibold');
+                link.classList.remove('text-slate-600', 'dark:text-slate-300', 'font-medium');
+
+                // If link is inside a dropdown, highlight the parent button
+                const dropdown = link.closest('.group');
+                if (dropdown) {
+                    const dropdownBtn = dropdown.querySelector('button');
+                    if (dropdownBtn) {
+                        dropdownBtn.classList.add('text-primary-600', 'dark:text-primary-400', 'font-semibold');
+                        dropdownBtn.classList.remove('text-slate-600', 'dark:text-slate-300', 'font-medium');
+                    }
+                }
+
+                // Mobile dropdown parent toggle
+                const mobileDropdown = link.closest('[id$="Dropdown"]');
+                if (mobileDropdown) {
+                    const mobileToggle = document.querySelector(`[aria-controls="${mobileDropdown.id}"]`);
+                    if (mobileToggle) {
+                        mobileToggle.classList.add('text-primary-600', 'dark:text-primary-400');
+                        mobileToggle.classList.remove('text-slate-900', 'dark:text-white');
+                        // Expand the dropdown by default if it contains the active link
+                        mobileDropdown.classList.remove('hidden');
+                        const chevron = mobileToggle.querySelector('i');
+                        if (chevron) chevron.classList.add('rotate-180');
+                    }
+                }
+            }
+        });
+    }
+
+    highlightActiveLink();
 
 });

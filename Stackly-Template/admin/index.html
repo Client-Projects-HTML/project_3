@@ -37,6 +37,16 @@
             }
         }
     </script>
+    <style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
 </head>
 
 <body class="bg-gray-50 dark:bg-slate-900 text-slate-600 dark:text-slate-300 font-sans">
@@ -57,7 +67,7 @@
                 </a>
             </div>
 
-            <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+            <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto no-scrollbar">
                 <a href="index.html"
                     class="flex items-center gap-3 px-4 py-3 bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 rounded-xl font-medium">
                     <i class="fas fa-home w-5"></i> Dashboard
@@ -139,7 +149,9 @@
             <main class="flex-1 overflow-y-auto p-6 md:p-8">
                 <div class="mb-8 flex justify-between items-end">
                     <div>
-                        <h1 class="text-2xl font-bold text-slate-900 dark:text-white">Safety Compliance Overview</h1>
+                        <p class="text-lg font-bold text-primary-600 uppercase tracking-wider mb-1">Welcome Back, Admin
+                        </p>
+                        <h1 class="text-lg font-bold text-slate-900 dark:text-white">Safety Compliance Overview</h1>
                         <p class="text-slate-500 dark:text-slate-400 mt-1">Track employee certifications and training
                             compliance.</p>
                     </div>
